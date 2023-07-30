@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://w6gs4ljwad72"]
+
+[ext_resource type="Script" path="res://InputHandler.gd" id="1_eak1g"]
+[ext_resource type="Script" path="res://Spaceship.gd" id="1_ohjsx"]
+[ext_resource type="Texture2D" uid="uid://w4cau1do5o04" path="res://orange_circle.svg" id="1_seg6n"]
+[ext_resource type="Texture2D" uid="uid://hxemiym11g4n" path="res://Triangle_Orange.svg" id="2_yw1gj"]
+[ext_resource type="Script" path="res://StarFields.gd" id="4_30y0s"]
+[ext_resource type="Script" path="res://TrajectoryDraw.gd" id="4_i3jne"]
+[ext_resource type="Script" path="res://Star.gd" id="5_h66qn"]
+[ext_resource type="Script" path="res://SpaceshipVisual.gd" id="5_pq0la"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78t37"]
+radius = 29.0172
+
+[node name="MainTest" type="Node2D"]
+texture_filter = 1
+
+[node name="InputHandler" type="Node2D" parent="." node_paths=PackedStringArray("spaceship")]
+process_mode = 3
+script = ExtResource("1_eak1g")
+spaceship = NodePath("../StarFields/Spaceship")
+
+[node name="StarFields" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("4_30y0s")
+
+[node name="Star" type="Node2D" parent="StarFields"]
+modulate = Color(1, 26.04, 1, 1)
+position = Vector2(0, 163)
+scale = Vector2(1.86815, 1.95432)
+script = ExtResource("5_h66qn")
+
+[node name="Sprite2D" type="Sprite2D" parent="StarFields/Star"]
+texture = ExtResource("1_seg6n")
+
+[node name="Spaceship" type="CharacterBody2D" parent="StarFields"]
+process_mode = 1
+scale = Vector2(0.335072, 0.380502)
+motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 4278190080
+script = ExtResource("1_ohjsx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StarFields/Spaceship"]
+shape = SubResource("CircleShape2D_78t37")
+
+[node name="SpaceshipVisual" type="Sprite2D" parent="StarFields/Spaceship"]
+texture_filter = 1
+texture = ExtResource("1_seg6n")
+script = ExtResource("5_pq0la")
+
+[node name="TriangleOrange" type="Sprite2D" parent="StarFields/Spaceship/SpaceshipVisual"]
+position = Vector2(53, 0)
+rotation = 1.5708
+texture = ExtResource("2_yw1gj")
+
+[node name="TrajectoryDraw" type="Node" parent="StarFields/Spaceship"]
+script = ExtResource("4_i3jne")
+
+[node name="Camera2D" type="Camera2D" parent="StarFields"]
