@@ -46,6 +46,7 @@ shape = SubResource("CircleShape2D_78t37")
 
 [node name="SpaceshipVisual" type="Sprite2D" parent="StarFields/Spaceship"]
 texture_filter = 1
+rotation = 0.0866643
 texture = ExtResource("1_seg6n")
 script = ExtResource("5_pq0la")
 
