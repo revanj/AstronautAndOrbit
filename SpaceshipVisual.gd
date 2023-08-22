@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 func set_heading(dir:Vector2):
 	if (dir == Vector2.ZERO):

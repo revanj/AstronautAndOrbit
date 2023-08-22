@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb832x8inl183"]
+
+[ext_resource type="Script" path="res://Spaceship.gd" id="1_i0tod"]
+[ext_resource type="Texture2D" uid="uid://bqutp1bnygknl" path="res://Art/ship.png" id="2_v7d53"]
+[ext_resource type="Script" path="res://SpaceshipVisual.gd" id="3_ya8jj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y11g"]
+size = Vector2(77.5953, 20)
+
+[node name="Spaceship" type="CharacterBody2D"]
+process_mode = 1
+scale = Vector2(0.335072, 0.380502)
+motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 4278190080
+script = ExtResource("1_i0tod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.96887, 0)
+shape = SubResource("RectangleShape2D_3y11g")
+
+[node name="SpaceshipVisual" type="Node2D" parent="."]
+script = ExtResource("3_ya8jj")
+
+[node name="Ship" type="Sprite2D" parent="SpaceshipVisual"]
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_v7d53")

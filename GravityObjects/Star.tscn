@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b160ih64nd20k"]
+
+[ext_resource type="Script" path="res://GravityObjects/GravityObject.gd" id="1_kfwey"]
+[ext_resource type="Texture2D" uid="uid://b6tmw15kmlkle" path="res://Art/StarBlue.svg" id="2_y02pq"]
+
+[node name="Star" type="Node2D"]
+modulate = Color(1, 26.04, 1, 1)
+script = ExtResource("1_kfwey")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y02pq")

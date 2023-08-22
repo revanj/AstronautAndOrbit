@@ -1,3 +1,4 @@
+class_name GravityObject
 extends Node2D
 
 @export var gravity_factor = 100000
