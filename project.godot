@@ -31,6 +31,22 @@ cancel_big_jump={
 "deadzone": 0.5,
 "events": []
 }
+thruster_forward={
+"deadzone": 0.5,
+"events": []
+}
+thruster_brake={
+"deadzone": 0.5,
+"events": []
+}
+thruster_left_turn={
+"deadzone": 0.5,
+"events": []
+}
+thruster_right_turn={
+"deadzone": 0.5,
+"events": []
+}
 
 [physics]
 

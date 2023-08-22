@@ -8,42 +8,37 @@ enum InputState {
 
 var input_state = InputState.Normal
 
-@export var spaceship: CharacterBody2D
+@export var spaceship: Spaceship
 
 var cache_spaceship_velocity: Vector2
-var mouse_movement_velocity: Vector2
+
+var drag_start_position: Vector2
+
+var max_jump_speed = 500
 
 func _physics_process(delta):
-	print(get_tree().paused)
 	match input_state:
 		InputState.Normal:
+			spaceship.hide_big_jump_display()
 			if Input.is_action_just_pressed("big_jump"):
 				cache_spaceship_velocity = spaceship.velocity
-				mouse_movement_velocity = Vector2.ZERO
-				get_tree().paused = true
+				drag_start_position = get_global_mouse_position()
+				spaceship.process_mode = Node.PROCESS_MODE_DISABLED
 				input_state = InputState.GetBigJump
 		InputState.GetBigJump:
-			print("state big jump")
-			var mouse_velocity = (get_global_mouse_position() - spaceship.global_position) * 0.1
-			spaceship.load_velocity(mouse_velocity)
+			var mouse_velocity = (drag_start_position - get_global_mouse_position()) * 0.1
+			spaceship.set_big_jump_display(
+				mouse_velocity.length()/max_jump_speed, mouse_velocity.normalized())
 			
 			if Input.is_action_just_pressed("cancel_big_jump"):
-				get_tree().paused = false
+				spaceship.process_mode = Node.PROCESS_MODE_INHERIT
 				spaceship.load_velocity(cache_spaceship_velocity)
 				input_state = InputState.Normal
 			
 			if Input.is_action_just_released("big_jump"):
-				spaceship.load_velocity(mouse_velocity)
-				get_tree().paused = false
+				if mouse_velocity.length() > 10:
+					spaceship.load_velocity(mouse_velocity)
+				spaceship.process_mode = Node.PROCESS_MODE_INHERIT
 				input_state = InputState.Normal
-
-func _input(event):
-	match input_state:
-		InputState.GetBigJump:
-			if event is InputEventMouseMotion:
-				mouse_movement_velocity += event.relative
-	# Mouse in viewport coordinates.
-	if event is InputEventMouseButton:
-		print("Mouse Click/Unclick at: ", event.position)
-	elif event is InputEventMouseMotion:
-		print("Mouse Motion at: ", event.position)
+			spaceship.velocity = mouse_velocity
+	

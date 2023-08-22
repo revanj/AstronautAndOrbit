@@ -10,18 +10,23 @@
 texture_filter = 1
 
 [node name="InputHandler" type="Node2D" parent="." node_paths=PackedStringArray("spaceship")]
-process_mode = 3
 script = ExtResource("1_eak1g")
 spaceship = NodePath("../StarFields/Spaceship")
 
 [node name="StarFields" type="Node2D" parent="."]
-process_mode = 3
 script = ExtResource("4_30y0s")
 arrow_texture = ExtResource("3_qmdwb")
 
 [node name="Star" parent="StarFields" instance=ExtResource("3_2t0na")]
-position = Vector2(0, 125)
+position = Vector2(-133, 144)
+
+[node name="Star2" parent="StarFields" instance=ExtResource("3_2t0na")]
+position = Vector2(-162, -157)
+
+[node name="Star3" parent="StarFields" instance=ExtResource("3_2t0na")]
+position = Vector2(187, -34)
 
 [node name="Spaceship" parent="StarFields" instance=ExtResource("4_hcorw")]
+process_mode = 0
 
 [node name="Camera2D" type="Camera2D" parent="StarFields"]

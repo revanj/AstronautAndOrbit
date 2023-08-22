@@ -8,4 +8,5 @@ modulate = Color(1, 26.04, 1, 1)
 script = ExtResource("1_kfwey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.415174, 0.415174)
 texture = ExtResource("2_y02pq")

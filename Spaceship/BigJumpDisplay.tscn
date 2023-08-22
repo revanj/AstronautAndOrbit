@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw8ruuwn01bhk"]
+
+[ext_resource type="Script" path="res://Spaceship/BigJumpDisplay.gd" id="1_g0w7n"]
+[ext_resource type="Texture2D" uid="uid://bqhuhnhqdbrro" path="res://Art/Arrow4.png" id="1_up4nt"]
+
+[node name="BigJumpDisplay" type="Node2D"]
+script = ExtResource("1_g0w7n")
+
+[node name="Arrow1" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_up4nt")
+
+[node name="Arrow2" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_up4nt")
+
+[node name="Arrow3" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_up4nt")
+
+[node name="Arrow4" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_up4nt")
+
+[node name="Arrow5" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_up4nt")
+
+[node name="Arrow6" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_up4nt")
