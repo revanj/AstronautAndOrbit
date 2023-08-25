@@ -21,7 +21,6 @@ position = Vector2(5.96887, 0)
 shape = SubResource("RectangleShape2D_3y11g")
 
 [node name="BigJumpDisplay" parent="." instance=ExtResource("4_hw35e")]
-scale = Vector2(1, 1)
 
 [node name="SpaceshipVisual" type="Node2D" parent="."]
 script = ExtResource("3_ya8jj")

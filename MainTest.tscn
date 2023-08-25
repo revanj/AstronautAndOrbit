@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://w6gs4ljwad72"]
+[gd_scene load_steps=8 format=3 uid="uid://w6gs4ljwad72"]
 
 [ext_resource type="Script" path="res://InputHandler.gd" id="1_eak1g"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="3_2t0na"]
 [ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Arrow2.png" id="3_qmdwb"]
 [ext_resource type="Script" path="res://StarFields.gd" id="4_30y0s"]
 [ext_resource type="PackedScene" uid="uid://bb832x8inl183" path="res://Spaceship/Spaceship.tscn" id="4_hcorw"]
+[ext_resource type="Texture2D" uid="uid://b0v12hvi7arcb" path="res://Art/EnergyStar.png" id="6_cmmlw"]
+[ext_resource type="PackedScene" uid="uid://blcdi8y5tplqc" path="res://UI/DialogueBox.tscn" id="7_0t62n"]
 
 [node name="MainTest" type="Node2D"]
 texture_filter = 1
@@ -30,3 +32,13 @@ position = Vector2(187, -34)
 process_mode = 0
 
 [node name="Camera2D" type="Camera2D" parent="StarFields"]
+
+[node name="EnergyStar" type="Sprite2D" parent="."]
+position = Vector2(-64, -182)
+scale = Vector2(0.159592, 0.159592)
+texture = ExtResource("6_cmmlw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" parent="CanvasLayer" instance=ExtResource("7_0t62n")]
+visible = false

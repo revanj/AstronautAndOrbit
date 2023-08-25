@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://blcdi8y5tplqc"]
+
+[ext_resource type="Texture2D" uid="uid://dvshds1upvhgj" path="res://Art/DialogBox2.png" id="1_y1j5v"]
+
+[node name="DialogueBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 323.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 119
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_y1j5v")
+region_rect = Rect2(0, 0, 945, 195)
+patch_margin_left = 143
+patch_margin_top = 75
+patch_margin_right = 140
+patch_margin_bottom = 75
