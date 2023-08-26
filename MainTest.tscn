@@ -11,9 +11,10 @@
 [node name="MainTest" type="Node2D"]
 texture_filter = 1
 
-[node name="InputHandler" type="Node2D" parent="." node_paths=PackedStringArray("spaceship")]
+[node name="InputHandler" type="Node2D" parent="." node_paths=PackedStringArray("spaceship", "camera")]
 script = ExtResource("1_eak1g")
 spaceship = NodePath("../StarFields/Spaceship")
+camera = NodePath("../StarFields/Spaceship/Camera2D")
 
 [node name="StarFields" type="Node2D" parent="."]
 script = ExtResource("4_30y0s")
@@ -31,7 +32,8 @@ position = Vector2(187, -34)
 [node name="Spaceship" parent="StarFields" instance=ExtResource("4_hcorw")]
 process_mode = 0
 
-[node name="Camera2D" type="Camera2D" parent="StarFields"]
+[node name="Camera2D" type="Camera2D" parent="StarFields/Spaceship"]
+scale = Vector2(2.98443, 2.62811)
 
 [node name="EnergyStar" type="Sprite2D" parent="."]
 position = Vector2(-64, -182)

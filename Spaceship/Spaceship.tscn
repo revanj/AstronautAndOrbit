@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb832x8inl183"]
+[gd_scene load_steps=8 format=3 uid="uid://bb832x8inl183"]
 
 [ext_resource type="Script" path="res://Spaceship.gd" id="1_i0tod"]
 [ext_resource type="Texture2D" uid="uid://bqutp1bnygknl" path="res://Art/ship.png" id="2_v7d53"]
 [ext_resource type="Script" path="res://SpaceshipVisual.gd" id="3_ya8jj"]
 [ext_resource type="PackedScene" uid="uid://cw8ruuwn01bhk" path="res://Spaceship/BigJumpDisplay.tscn" id="4_hw35e"]
+[ext_resource type="Texture2D" uid="uid://0l2s4h23a6bx" path="res://Art/FlameRed.png" id="5_vqsrp"]
+[ext_resource type="Texture2D" uid="uid://ch2y84spiqeix" path="res://Art/FlameBlue.png" id="6_msu38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y11g"]
 size = Vector2(77.5953, 20)
@@ -28,3 +30,14 @@ script = ExtResource("3_ya8jj")
 [node name="Ship" type="Sprite2D" parent="SpaceshipVisual"]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_v7d53")
+
+[node name="FlameRed" type="Sprite2D" parent="SpaceshipVisual"]
+position = Vector2(0, 97.24)
+scale = Vector2(0.697186, 0.420339)
+texture = ExtResource("5_vqsrp")
+
+[node name="FlameBlue" type="Sprite2D" parent="SpaceshipVisual"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 236.53)
+scale = Vector2(1, 1)
+texture = ExtResource("6_msu38")
