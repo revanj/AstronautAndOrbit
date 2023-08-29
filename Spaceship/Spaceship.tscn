@@ -39,5 +39,4 @@ texture = ExtResource("5_vqsrp")
 [node name="FlameBlue" type="Sprite2D" parent="SpaceshipVisual"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 236.53)
-scale = Vector2(1, 1)
 texture = ExtResource("6_msu38")

@@ -6,7 +6,7 @@ extends Node2D
 
 var stars
 
-@onready var spaceship:Node2D = $Spaceship
+@onready var spaceship:Spaceship = $Spaceship
 @export var arrow_texture: Texture
 
 var half_texture_width: float
@@ -64,7 +64,7 @@ func _draw():
 	
 	var trajectory_data = get_trajectory(
 		spaceship.global_position,
-		spaceship.velocity,
+		spaceship.display_velocity,
 		nb_points, 1.0/30.0, 100)
 	
 	var points_arc = trajectory_data.points_arc
