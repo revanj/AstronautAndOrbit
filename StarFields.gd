@@ -9,6 +9,10 @@ var stars
 @onready var spaceship:Spaceship = $Spaceship
 @export var arrow_texture: Texture
 
+var trajectory_data
+
+
+
 var half_texture_width: float
 
 class TrajectoryData:
@@ -19,6 +23,7 @@ class TrajectoryData:
 func _ready():
 	stars = get_children().filter(func(x:Node): return x.has_method("get_gravity_vector"))
 	half_texture_width = arrow_texture.get_width()/2
+	spaceship.star_field = self
 	
 func get_field_at(pos):
 	var result = Vector2.ZERO
@@ -62,10 +67,7 @@ func _draw():
 	var color = Color(1.0, 1.0, 1.0)
 	var nb_points = 200
 	
-	var trajectory_data = get_trajectory(
-		spaceship.global_position,
-		spaceship.display_velocity,
-		nb_points, 1.0/30.0, 100)
+	
 	
 	var points_arc = trajectory_data.points_arc
 	var arrow_pos = trajectory_data.arrow_pos

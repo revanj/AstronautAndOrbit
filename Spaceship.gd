@@ -34,6 +34,8 @@ var cache_spaceship_velocity: Vector2
 var drag_start_position: Vector2
 var max_jump_speed = 500
 
+var star_field
+
 func _physics_process(delta):
 	match input_state:
 		InputState.Normal:
@@ -83,7 +85,10 @@ func _physics_process(delta):
 		velocity = velocity_cached
 		velocity_cached = Vector2.INF
 		
-	
+	star_field.trajectory_data = star_field.get_trajectory(
+		spaceship.global_position,
+		spaceship.display_velocity,
+		200, 1.0/30.0, 100)
 	move_and_slide()
 
 func turn_heading(rad):
