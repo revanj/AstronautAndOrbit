@@ -18,16 +18,16 @@ position = Vector2(396, 175)
 scale = Vector2(1.33191, 1.33816)
 
 [node name="EnergyCrystal" parent="Crystals" index="0" instance=ExtResource("3_fnrlq")]
-position = Vector2(307, -316)
+position = Vector2(386, -227)
 
 [node name="EnergyCrystal2" parent="Crystals" index="1" instance=ExtResource("3_fnrlq")]
-position = Vector2(197, -392)
+position = Vector2(256, -374)
 
 [node name="EnergyCrystal3" parent="Crystals" index="2" instance=ExtResource("3_fnrlq")]
 position = Vector2(72, -353)
 
 [node name="EnergyCrystal4" parent="Crystals" index="3" instance=ExtResource("3_fnrlq")]
-position = Vector2(530, 74)
+position = Vector2(550, -8)
 
 [node name="EnergyCrystal5" parent="Crystals" index="4" instance=ExtResource("3_fnrlq")]
-position = Vector2(612, 233)
+position = Vector2(691, 242)

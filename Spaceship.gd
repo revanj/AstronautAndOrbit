@@ -24,7 +24,6 @@ var input_state = InputState.Normal
 @onready var visual = $SpaceshipVisual
 @onready var big_jump_display = $BigJumpDisplay
 @onready var spaceship: Spaceship = self
-@onready var camera: Camera2D = $Camera2D
 
 var velocity_cached = Vector2.INF
 var field_dir: Vector2
@@ -60,7 +59,7 @@ func _physics_process(delta):
 			visual.set_heading(heading_direction)
 			
 		InputState.GetBigJump:
-			var mouse_velocity = (drag_start_position - get_global_mouse_position()) * 0.1
+			var mouse_velocity = (drag_start_position - get_global_mouse_position()) * 2
 			spaceship.set_big_jump_display(
 				mouse_velocity.length()/max_jump_speed, mouse_velocity.normalized())
 			if mouse_velocity.length() > 10:
@@ -116,9 +115,9 @@ func show_big_jump_flame():
 	tween.tween_property($SpaceshipVisual/FlameBlue, "modulate", Color.WHITE, 0.25)
 	tween.tween_property($SpaceshipVisual/FlameBlue, "modulate", Color.TRANSPARENT, 0.1)
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton && event.is_pressed():
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			camera.zoom /= 1.1
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			camera.zoom *= 1.1
+#func _unhandled_input(event):
+#	if event is InputEventMouseButton && event.is_pressed():
+#		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+#			camera.zoom /= 1.1
+#		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+#			camera.zoom *= 1.1

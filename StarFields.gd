@@ -60,7 +60,7 @@ func _process(delta):
 
 func _draw():
 	var color = Color(1.0, 1.0, 1.0)
-	var nb_points = 2000
+	var nb_points = 200
 	
 	var trajectory_data = get_trajectory(
 		spaceship.global_position,
