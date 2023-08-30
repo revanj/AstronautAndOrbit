@@ -40,5 +40,3 @@ texture = ExtResource("5_vqsrp")
 modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 236.53)
 texture = ExtResource("6_msu38")
-
-[node name="Camera2D" type="Camera2D" parent="."]

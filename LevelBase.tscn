@@ -28,3 +28,5 @@ script = ExtResource("7_68dhf")
 visible = false
 
 [node name="CrystalCollect" parent="UI" instance=ExtResource("9_1oir3")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

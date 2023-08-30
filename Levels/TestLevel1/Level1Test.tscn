@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0a1c3yaxmk7q"]
+
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_2brmb"]
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_4p74e"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="3_fnrlq"]
+
+[node name="LevelBase" instance=ExtResource("1_2brmb")]
+
+[node name="Spaceship" parent="StarFields" index="0"]
+position = Vector2(-784, 183)
+
+[node name="Star" parent="StarFields" index="1" instance=ExtResource("2_4p74e")]
+position = Vector2(180, -255)
+scale = Vector2(1.33191, 1.33816)
+
+[node name="Star2" parent="StarFields" index="2" instance=ExtResource("2_4p74e")]
+position = Vector2(396, 175)
+scale = Vector2(1.33191, 1.33816)
+
+[node name="EnergyCrystal" parent="Crystals" index="0" instance=ExtResource("3_fnrlq")]
+position = Vector2(307, -316)
+
+[node name="EnergyCrystal2" parent="Crystals" index="1" instance=ExtResource("3_fnrlq")]
+position = Vector2(197, -392)
+
+[node name="EnergyCrystal3" parent="Crystals" index="2" instance=ExtResource("3_fnrlq")]
+position = Vector2(72, -353)
+
+[node name="EnergyCrystal4" parent="Crystals" index="3" instance=ExtResource("3_fnrlq")]
+position = Vector2(530, 74)
+
+[node name="EnergyCrystal5" parent="Crystals" index="4" instance=ExtResource("3_fnrlq")]
+position = Vector2(612, 233)
