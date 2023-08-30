@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpsqvdopnkhmy"]
+
+[ext_resource type="Texture2D" uid="uid://b0v12hvi7arcb" path="res://Art/EnergyStar.png" id="1_jgrr0"]
+
+[node name="CrystalCollect" type="HBoxContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+offset_right = 486.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_jgrr0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "0"

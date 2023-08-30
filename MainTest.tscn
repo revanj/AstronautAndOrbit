@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://w6gs4ljwad72"]
+[gd_scene load_steps=10 format=3 uid="uid://w6gs4ljwad72"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_dlda8"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="3_2t0na"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bb832x8inl183" path="res://Spaceship/Spaceship.tscn" id="4_hcorw"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="6_4cqvk"]
 [ext_resource type="PackedScene" uid="uid://blcdi8y5tplqc" path="res://UI/DialogueBox.tscn" id="7_0t62n"]
+[ext_resource type="Script" path="res://UI.gd" id="7_e4s16"]
+[ext_resource type="PackedScene" uid="uid://cpsqvdopnkhmy" path="res://CrystalCollect.tscn" id="9_abxmf"]
 
 [node name="MainTest" type="Node2D"]
 texture_filter = 1
@@ -28,12 +30,14 @@ position = Vector2(187, -34)
 [node name="Spaceship" parent="StarFields" instance=ExtResource("4_hcorw")]
 process_mode = 0
 
-[node name="Camera2D" type="Camera2D" parent="StarFields/Spaceship"]
-scale = Vector2(2.98443, 2.62811)
+[node name="Crystals" type="Node2D" parent="."]
 
-[node name="EnergyStar" parent="." instance=ExtResource("6_4cqvk")]
+[node name="EnergyCrystal" parent="Crystals" instance=ExtResource("6_4cqvk")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("7_e4s16")
 
-[node name="DialogueBox" parent="CanvasLayer" instance=ExtResource("7_0t62n")]
+[node name="DialogueBox" parent="UI" instance=ExtResource("7_0t62n")]
 visible = false
+
+[node name="CrystalCollect" parent="UI" instance=ExtResource("9_abxmf")]

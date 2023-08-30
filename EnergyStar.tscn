@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://co8brsgf1hgks"]
 
 [ext_resource type="Texture2D" uid="uid://b0v12hvi7arcb" path="res://Art/EnergyStar.png" id="1_7slta"]
-[ext_resource type="Script" path="res://EnergyStar.gd" id="1_jdbl5"]
+[ext_resource type="Script" path="res://EnergyCrystal.gd" id="1_8l351"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdw1y"]
 radius = 132.921
 
-[node name="EnergyStar" type="Area2D"]
+[node name="EnergyCrystal" type="Area2D"]
 position = Vector2(-64, -182)
 scale = Vector2(0.159592, 0.159592)
-script = ExtResource("1_jdbl5")
+script = ExtResource("1_8l351")
 
 [node name="EnergyStarSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_7slta")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tdw1y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

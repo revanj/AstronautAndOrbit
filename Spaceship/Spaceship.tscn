@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ch2y84spiqeix" path="res://Art/FlameBlue.png" id="6_msu38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y11g"]
-size = Vector2(77.5953, 20)
+size = Vector2(59.6887, 84.0994)
 
-[node name="Spaceship" type="CharacterBody2D"]
+[node name="Spaceship" type="CharacterBody2D" groups=["spaceship"]]
 process_mode = 1
 scale = Vector2(0.335072, 0.380502)
 motion_mode = 1
@@ -19,7 +19,7 @@ platform_floor_layers = 4278190080
 script = ExtResource("1_i0tod")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.96887, 0)
+position = Vector2(0, 3.99451e-06)
 shape = SubResource("RectangleShape2D_3y11g")
 
 [node name="BigJumpDisplay" parent="." instance=ExtResource("4_hw35e")]
@@ -40,3 +40,5 @@ texture = ExtResource("5_vqsrp")
 modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 236.53)
 texture = ExtResource("6_msu38")
+
+[node name="Camera2D" type="Camera2D" parent="."]
