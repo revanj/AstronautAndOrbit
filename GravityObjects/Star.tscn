@@ -3,18 +3,17 @@
 [ext_resource type="Script" path="res://GravityObjects/GravityObject.gd" id="1_kfwey"]
 [ext_resource type="Texture2D" uid="uid://b6tmw15kmlkle" path="res://Art/StarBlue.svg" id="2_y02pq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l2ij7"]
-radius = 142.706
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0nn2"]
+radius = 33.1361
 
-[node name="Star" type="Node2D"]
-modulate = Color(1, 26.04, 1, 1)
+[node name="Star" type="Area2D"]
 script = ExtResource("1_kfwey")
 gravity_factor = 10000000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d0nn2")
+debug_color = Color(0.929412, 0.172549, 0.517647, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.415174, 0.415174)
 texture = ExtResource("2_y02pq")
-
-[node name="RangeIndicator" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_l2ij7")
-debug_color = Color(0.443137, 0.568627, 0.509804, 0.0745098)

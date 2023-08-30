@@ -3,8 +3,8 @@ extends Node2D
 @onready var arrows = self.get_children()
 @onready var n_arrows = len(arrows)
 
-var max_length = 500
-var min_length = 50
+var max_length = 50
+var min_length = 5
 
 # direction is a normalized vector.
 # seperating them so that strength 0 still has a direction

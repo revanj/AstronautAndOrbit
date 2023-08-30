@@ -12,10 +12,12 @@ position = Vector2(-784, 183)
 [node name="Star" parent="StarFields" index="1" instance=ExtResource("2_4p74e")]
 position = Vector2(180, -255)
 scale = Vector2(1.33191, 1.33816)
+effect_radius = 250.0
 
 [node name="Star2" parent="StarFields" index="2" instance=ExtResource("2_4p74e")]
 position = Vector2(396, 175)
 scale = Vector2(1.33191, 1.33816)
+effect_radius = 305.255
 
 [node name="EnergyCrystal" parent="Crystals" index="0" instance=ExtResource("3_fnrlq")]
 position = Vector2(386, -227)
