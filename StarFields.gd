@@ -49,7 +49,7 @@ func get_trajectory(start_pos, start_vel, nb_points, dt, ds):
 		var s = current_vel * dt
 		current_point = current_point + s
 		current_vel = current_vel + get_field_at(current_point) * dt
-		s_accumulate += s.length()
+		s_accumulate += 1
 		if s_accumulate >= ds:
 			arrow_pos.push_back(current_point)
 			arrow_directions.push_back(current_vel)

@@ -88,7 +88,7 @@ func _physics_process(delta):
 	star_field.trajectory_data = star_field.get_trajectory(
 		spaceship.global_position,
 		spaceship.display_velocity,
-		200, 1.0/30.0, 100)
+		200, 1.0/30.0, 10)
 	move_and_slide()
 
 func turn_heading(rad):
