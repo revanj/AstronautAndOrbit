@@ -1,6 +1,6 @@
 @tool
 class_name GravityObject
-extends Node2D
+extends Area2D
 
 
 @export var gravity_factor = 100000
@@ -11,6 +11,8 @@ extends Node2D
 		queue_redraw()
 
 @onready var death_radius = $CollisionShape2D.shape.radius
+
+signal player_dead_by_star
 
 func get_gravity_vector(pos:Vector2):
 	var r = (global_position - pos).length()
@@ -35,3 +37,8 @@ func draw_circle_arc(center, radius, color):
 
 	for index_point in range(nb_points):
 		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
+
+
+func _on_body_entered(body):
+	if body.is_in_group("spaceship"):
+		emit_signal("player_dead_by_star")

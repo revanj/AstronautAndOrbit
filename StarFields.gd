@@ -1,4 +1,5 @@
 extends Node2D
+class_name StarField
 # this class will collect all children of GravityObject
 # and give gravity strength at certain point
 # unfortunately it might be necessary to generate this per query

@@ -11,3 +11,6 @@ func _on_crystal_collected():
 	
 func update_crystal_label():
 	crystal_label.text = str(crystals_collected) + "/" + str(total_crystals)
+ 
+func _on_player_dead_by_star():
+	print("die")
