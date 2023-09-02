@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b461kvwtstg3r"]
+
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_vfgw3"]
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_7bsnp"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="3_chk8m"]
+
+[node name="LevelBase" instance=ExtResource("1_vfgw3")]
+
+[node name="Spaceship" parent="." index="0"]
+position = Vector2(-402, 134)
+starting_fuel = 30.0
+starting_velocity = 379.965
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("2_7bsnp")]
+position = Vector2(-147, 143)
+effect_radius = 350.0
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_7bsnp")]
+position = Vector2(154, -131)
+effect_radius = 350.0
+
+[node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("3_chk8m")]
+position = Vector2(129, -294)

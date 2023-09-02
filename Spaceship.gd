@@ -38,6 +38,11 @@ var max_jump_speed = 500
 var fuel_decrease_amount = 0.1
 var big_jump_fuel_amount = 40
 
+@export var starting_fuel:float = 100:
+	set(value):
+		starting_fuel = value
+		fuel_meter = value
+	
 @onready var star_field = $NavDisplay
 
 @export var starting_velocity:float:
@@ -54,6 +59,7 @@ var fuel_meter: float = 100 :
 func _ready():
 	star_field.spaceship = self
 	load_velocity(-transform.y * starting_velocity)
+	fuel_meter = starting_fuel
 
 
 func _physics_process(delta):
