@@ -34,7 +34,10 @@ var cache_spaceship_velocity: Vector2
 var drag_start_position: Vector2
 var max_jump_speed = 500
 
-var star_field
+@onready var star_field = $NavDisplay
+
+func _ready():
+	star_field.spaceship = self
 
 func _physics_process(delta):
 	match input_state:

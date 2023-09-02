@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb832x8inl183"]
+[gd_scene load_steps=10 format=3 uid="uid://bb832x8inl183"]
 
 [ext_resource type="Script" path="res://Spaceship.gd" id="1_i0tod"]
 [ext_resource type="Texture2D" uid="uid://bqutp1bnygknl" path="res://Art/ship.png" id="2_v7d53"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cw8ruuwn01bhk" path="res://Spaceship/BigJumpDisplay.tscn" id="4_hw35e"]
 [ext_resource type="Texture2D" uid="uid://0l2s4h23a6bx" path="res://Art/FlameRed.png" id="5_vqsrp"]
 [ext_resource type="Texture2D" uid="uid://ch2y84spiqeix" path="res://Art/FlameBlue.png" id="6_msu38"]
+[ext_resource type="Script" path="res://Spaceship/NavDisplay.gd" id="7_lsg2s"]
+[ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Arrow2.png" id="8_gha4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y11g"]
 size = Vector2(59.6887, 84.0994)
@@ -23,6 +25,7 @@ position = Vector2(0, 3.99451e-06)
 shape = SubResource("RectangleShape2D_3y11g")
 
 [node name="BigJumpDisplay" parent="." instance=ExtResource("4_hw35e")]
+visible = false
 
 [node name="SpaceshipVisual" type="Node2D" parent="."]
 script = ExtResource("3_ya8jj")
@@ -40,3 +43,7 @@ texture = ExtResource("5_vqsrp")
 modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 236.53)
 texture = ExtResource("6_msu38")
+
+[node name="NavDisplay" type="Node2D" parent="."]
+script = ExtResource("7_lsg2s")
+arrow_texture = ExtResource("8_gha4l")

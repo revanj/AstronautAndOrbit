@@ -5,9 +5,10 @@ class_name Level
 
 @onready var crystals = $Crystals.get_children()
 @onready var ui:UI = $UI
-@onready var star_field = $StarFields
+@onready var stars = $Stars.get_children()
 
 func _ready():
+	GameManager.find_current_level()
 	ui.total_crystals = len(crystals)
 	ui.update_crystal_label()
 	
@@ -15,5 +16,5 @@ func _ready():
 		c = c as EnergyCrystal
 		c.crystal_collected.connect(ui._on_crystal_collected)
 	
-	for s in get_tree().get_nodes_in_group("stars"):
+	for s in stars:
 		s.player_dead_by_star.connect(ui._on_player_dead_by_star)
