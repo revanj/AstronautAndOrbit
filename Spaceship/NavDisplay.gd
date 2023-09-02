@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 class_name NavDisplay
 # this class will collect all children of GravityObject
@@ -13,6 +14,8 @@ var spaceship
 var trajectory_data
 
 
+var previous_pos = Vector2.ZERO
+var previous_speed = 0
 
 var half_texture_width: float
 
@@ -36,8 +39,17 @@ func get_field_at(pos):
 	return result
 	
 func _physics_process(delta):
-	spaceship.field_dir = get_field_at(spaceship.global_position)
+	if !Engine.is_editor_hint():
+		spaceship.field_dir = get_field_at(spaceship.global_position)
+	else:
+		var spaceship = get_parent()
+		if spaceship.global_position != previous_pos:
+			queue_redraw()
+		previous_pos = spaceship.global_position
 		
+		if spaceship.starting_velocity != previous_speed:
+			queue_redraw()
+		previous_speed = spaceship.starting_velocity
 		
 func get_trajectory(start_pos, start_vel, nb_points, dt, ds):
 	var points_arc = PackedVector2Array()
@@ -65,15 +77,27 @@ func get_trajectory(start_pos, start_vel, nb_points, dt, ds):
 	return ret
 	
 func _process(delta):
-	queue_redraw()
+	if !Engine.is_editor_hint():
+		queue_redraw()
 
 func _draw():
 	var color = Color(1.0, 1.0, 1.0)
 	var nb_points = 200
 	
+	if Engine.is_editor_hint():
+		stars = get_tree().get_nodes_in_group("gravity_objects")
+		var spaceship:Spaceship = get_parent()
+		var calculating_velocity = -spaceship.transform.y * spaceship.starting_velocity
+		print( -spaceship.transform.y * spaceship.starting_velocity)
+		trajectory_data = get_trajectory(
+			spaceship.global_position, 
+			calculating_velocity, 200, 1.0/30.0, 10)
+			
+			
 	if trajectory_data == null:
 		return
-	
+		
+		
 	var points_arc = trajectory_data.points_arc
 	var arrow_pos = trajectory_data.arrow_pos
 	var arrow_dir = trajectory_data.arrow_dir

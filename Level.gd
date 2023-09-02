@@ -6,12 +6,15 @@ class_name Level
 @onready var crystals = $Crystals.get_children()
 @onready var ui:UI = $UI
 @onready var stars = $Stars.get_children()
+@onready var spaceship:Spaceship = $Spaceship
 
 func _ready():
 	GameManager.find_current_level()
+	
+	spaceship.fuel_changed.connect(ui._on_spaceship_fuel_changed)
+	
 	ui.total_crystals = len(crystals)
 	ui.update_crystal_label()
-	
 	for c in crystals:
 		c = c as EnergyCrystal
 		c.crystal_collected.connect(ui._on_crystal_collected)

@@ -18,8 +18,9 @@ enum InputState {
 	TruePause
 }
 
-var input_state = InputState.Normal
+signal fuel_changed
 
+var input_state = InputState.Normal
 
 @onready var visual = $SpaceshipVisual
 @onready var big_jump_display = $BigJumpDisplay
@@ -34,26 +35,45 @@ var cache_spaceship_velocity: Vector2
 var drag_start_position: Vector2
 var max_jump_speed = 500
 
+var fuel_decrease_amount = 0.1
+var big_jump_fuel_amount = 40
+
 @onready var star_field = $NavDisplay
+
+@export var starting_velocity:float:
+	set(value):
+		starting_velocity = value
+		if star_field != null:
+			star_field.queue_redraw()
+
+var fuel_meter: float = 100 :
+	set(value):
+		fuel_meter = value
+		emit_signal("fuel_changed", value)
 
 func _ready():
 	star_field.spaceship = self
+	load_velocity(-transform.y * starting_velocity)
+
 
 func _physics_process(delta):
 	match input_state:
 		InputState.Normal:
 			spaceship.hide_big_jump_display()
 			if Input.is_action_just_pressed("big_jump"):
-				cache_spaceship_velocity = spaceship.velocity
-				drag_start_position = get_global_mouse_position()
-				spaceship.velocity = Vector2.ZERO
-				input_state = InputState.GetBigJump
-			if Input.is_action_pressed("thruster_forward"):
+				if (fuel_meter > big_jump_fuel_amount):
+					cache_spaceship_velocity = spaceship.velocity
+					drag_start_position = get_global_mouse_position()
+					spaceship.velocity = Vector2.ZERO
+					input_state = InputState.GetBigJump
+			if Input.is_action_pressed("thruster_forward") && fuel_meter > 0:
 				spaceship.add_thruster()
+				fuel_meter -= fuel_decrease_amount
 			else:
 				spaceship.disable_flame()
 			if Input.is_action_pressed("thruster_brake"):
 				spaceship.velocity *= 0.95
+				fuel_meter -= fuel_decrease_amount
 			if Input.is_action_pressed("thruster_left_turn"):
 				spaceship.turn_heading(-turn_factor)
 			if Input.is_action_pressed("thruster_right_turn"):
@@ -78,6 +98,7 @@ func _physics_process(delta):
 				input_state = InputState.Normal
 			
 			if Input.is_action_just_released("big_jump"):
+				fuel_meter -= big_jump_fuel_amount
 				if mouse_velocity.length() > 10:
 					spaceship.load_velocity(mouse_velocity)
 					spaceship.show_big_jump_flame()
@@ -87,11 +108,13 @@ func _physics_process(delta):
 	if (velocity_cached != Vector2.INF):
 		velocity = velocity_cached
 		velocity_cached = Vector2.INF
-		
+	
+	
 	star_field.trajectory_data = star_field.get_trajectory(
 		spaceship.global_position,
 		spaceship.display_velocity,
 		200, 1.0/30.0, 10)
+		
 	move_and_slide()
 
 func turn_heading(rad):

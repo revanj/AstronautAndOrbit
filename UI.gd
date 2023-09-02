@@ -4,6 +4,7 @@ class_name UI
 var crystals_collected = 0
 var total_crystals = 0
 @onready var crystal_label:Label = $CrystalCollect/Label
+@onready var fuel_label:Label = $FuelMeter/Label
 @onready var facade = $Facade
 
 func _ready():
@@ -11,7 +12,9 @@ func _ready():
 	facade.show()
 	facade_clear_await()
 	get_tree().current_scene.scene_file_path
-	
+
+func _on_spaceship_fuel_changed(fuel):
+	fuel_label.text = str(fuel).pad_decimals(1) + "%"
 
 func _on_crystal_collected():
 	crystals_collected += 1
