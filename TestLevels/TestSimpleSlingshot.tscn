@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0a1c3yaxmk7q"]
+[gd_scene load_steps=6 format=3 uid="uid://c0a1c3yaxmk7q"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_73wph"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_t10vf"]
+[ext_resource type="Texture2D" uid="uid://rftq5wkvdy6s" path="res://Art/StarRedgiant.svg" id="3_qrbn8"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="3_ur5qs"]
+[ext_resource type="Texture2D" uid="uid://bqn66tyhuu470" path="res://Art/StarOrange.svg" id="4_qpnyj"]
 
 [node name="LevelBase" instance=ExtResource("1_73wph")]
 
@@ -12,10 +14,12 @@ starting_velocity = 539.805
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_t10vf")]
 position = Vector2(409, -146)
+texture = ExtResource("3_qrbn8")
 effect_radius = 350.0
 
 [node name="Star3" parent="Stars" index="1" instance=ExtResource("2_t10vf")]
 position = Vector2(-586, 267)
+texture = ExtResource("4_qpnyj")
 effect_radius = 350.0
 
 [node name="EnergyCrystal" parent="Crystals" index="0" instance=ExtResource("3_ur5qs")]
@@ -26,3 +30,6 @@ position = Vector2(587, -222)
 
 [node name="EnergyCrystal3" parent="Crystals" index="2" instance=ExtResource("3_ur5qs")]
 position = Vector2(395, -346)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+debug_color = Color(0, 0.596078, 0.701961, 0)

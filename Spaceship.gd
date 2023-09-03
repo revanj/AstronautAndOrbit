@@ -36,7 +36,7 @@ var cache_spaceship_velocity: Vector2
 var drag_start_position: Vector2
 var max_jump_speed = 500
 
-var fuel_decrease_amount = 0.6
+var fuel_decrease_amount = 0.3
 var big_jump_fuel_amount = 30
 
 @export var starting_big_jump_fuel = 90

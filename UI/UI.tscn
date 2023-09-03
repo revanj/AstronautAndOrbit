@@ -15,15 +15,6 @@ visible = false
 
 [node name="CrystalCollect" parent="." instance=ExtResource("3_d2oqe")]
 
-[node name="Facade" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
-
 [node name="FuelMeter" type="TextureRect" parent="."]
 offset_left = 54.0
 offset_top = 49.0
@@ -50,3 +41,12 @@ max_value = 90.0
 value = 90.0
 fill_mode = 3
 texture_progress = ExtResource("5_0wgu0")
+
+[node name="Facade" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

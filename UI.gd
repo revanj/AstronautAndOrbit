@@ -25,6 +25,7 @@ func _on_crystal_collected():
 	update_crystal_label()
 	if crystals_collected == total_crystals:
 		facade_darken_await()
+		print("calling load_next_level")
 		GameManager.load_next_level()
 	
 func update_crystal_label():
@@ -34,6 +35,9 @@ func _on_player_dead_by_star():
 	facade_darken_await()
 	get_tree().reload_current_scene()
 
+func _on_player_dead_by_out_of_bounds():
+	facade_darken_await()
+	get_tree().reload_current_scene()
 
 func facade_clear_await():
 	var tween = get_tree().create_tween()

@@ -7,9 +7,10 @@ class_name Level
 @onready var ui:UI = $UI
 @onready var stars = $Stars.get_children()
 @onready var spaceship:Spaceship = $Spaceship
+@onready var death_area = $DeathArea
 
 func _ready():
-	GameManager.find_current_level()
+	# GameManager.find_current_level()
 	
 	spaceship.fuel_changed.connect(ui._on_spaceship_fuel_changed)
 	spaceship.big_jump_fuel_changed.connect(ui._on_spaceship_big_jump_fuel_changed)
@@ -25,3 +26,5 @@ func _ready():
 	
 	for s in stars:
 		s.player_dead_by_star.connect(ui._on_player_dead_by_star)
+	
+	death_area.player_dead_by_out_of_bounds.connect(ui._on_player_dead_by_out_of_bounds)
