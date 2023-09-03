@@ -8,7 +8,7 @@
 
 [node name="Spaceship" parent="." index="0"]
 position = Vector2(-158, -7)
-starting_fuel = 30.0
+starting_big_jump_fuel = 0
 starting_velocity = 633.335
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_g6v8c")]

@@ -12,6 +12,10 @@ func _ready():
 	GameManager.find_current_level()
 	
 	spaceship.fuel_changed.connect(ui._on_spaceship_fuel_changed)
+	spaceship.big_jump_fuel_changed.connect(ui._on_spaceship_big_jump_fuel_changed)
+	
+	spaceship.emit_signal("big_jump_fuel_changed", spaceship.big_jump_fuel)
+	spaceship.emit_signal("fuel_changed", spaceship.fuel_meter)
 	
 	ui.total_crystals = len(crystals)
 	ui.update_crystal_label()

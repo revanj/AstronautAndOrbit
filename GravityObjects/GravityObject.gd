@@ -4,6 +4,12 @@ extends Area2D
 
 
 @export var gravity_factor = 100000
+@export var texture: Texture2D:
+	set(value):
+		texture = value
+		var sprite = get_node_or_null("Sprite2D")
+		if sprite != null:
+			sprite.texture = value
 
 @export var effect_radius: float = 100 :
 	set(value):

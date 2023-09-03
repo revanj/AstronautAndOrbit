@@ -19,6 +19,7 @@ enum InputState {
 }
 
 signal fuel_changed
+signal big_jump_fuel_changed
 
 var input_state = InputState.Normal
 
@@ -35,13 +36,11 @@ var cache_spaceship_velocity: Vector2
 var drag_start_position: Vector2
 var max_jump_speed = 500
 
-var fuel_decrease_amount = 0.1
-var big_jump_fuel_amount = 40
+var fuel_decrease_amount = 0.6
+var big_jump_fuel_amount = 30
 
-@export var starting_fuel:float = 100:
-	set(value):
-		starting_fuel = value
-		fuel_meter = value
+@export var starting_big_jump_fuel = 90
+@export var starting_fuel:float = 100
 	
 @onready var star_field = $NavDisplay
 
@@ -56,18 +55,24 @@ var fuel_meter: float = 100 :
 		fuel_meter = value
 		emit_signal("fuel_changed", value)
 
+var big_jump_fuel: float = 90:
+	set(value):
+		big_jump_fuel = value
+		emit_signal("big_jump_fuel_changed", value)
+
 func _ready():
 	star_field.spaceship = self
 	load_velocity(-transform.y * starting_velocity)
+	
 	fuel_meter = starting_fuel
-
+	big_jump_fuel = starting_big_jump_fuel
 
 func _physics_process(delta):
 	match input_state:
 		InputState.Normal:
 			spaceship.hide_big_jump_display()
 			if Input.is_action_just_pressed("big_jump"):
-				if (fuel_meter > big_jump_fuel_amount):
+				if (big_jump_fuel >= big_jump_fuel_amount):
 					cache_spaceship_velocity = spaceship.velocity
 					drag_start_position = get_global_mouse_position()
 					spaceship.velocity = Vector2.ZERO
@@ -104,7 +109,7 @@ func _physics_process(delta):
 				input_state = InputState.Normal
 			
 			if Input.is_action_just_released("big_jump"):
-				fuel_meter -= big_jump_fuel_amount
+				big_jump_fuel -= big_jump_fuel_amount
 				if mouse_velocity.length() > 10:
 					spaceship.load_velocity(mouse_velocity)
 					spaceship.show_big_jump_flame()

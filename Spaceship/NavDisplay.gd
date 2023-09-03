@@ -88,7 +88,6 @@ func _draw():
 		stars = get_tree().get_nodes_in_group("gravity_objects")
 		var spaceship:Spaceship = get_parent()
 		var calculating_velocity = -spaceship.transform.y * spaceship.starting_velocity
-		print( -spaceship.transform.y * spaceship.starting_velocity)
 		trajectory_data = get_trajectory(
 			spaceship.global_position, 
 			calculating_velocity, 200, 1.0/30.0, 10)
