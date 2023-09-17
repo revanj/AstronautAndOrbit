@@ -9,10 +9,10 @@
 [node name="LevelBase" instance=ExtResource("1_vfgw3")]
 
 [node name="Spaceship" parent="." index="0"]
-position = Vector2(-402, 134)
+position = Vector2(-368, 146)
 starting_big_jump_fuel = 0
 starting_fuel = 30.0
-starting_velocity = 379.965
+starting_velocity = 500.0
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_7bsnp")]
 position = Vector2(-147, 143)

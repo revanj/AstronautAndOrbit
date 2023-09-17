@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://clwn6u5dnppu7"]
+
+[ext_resource type="Shader" path="res://Planets/Rocky/RockyPlanet.gdshader" id="1_2qj8q"]
+[ext_resource type="Texture2D" uid="uid://qqhfh1my8j0h" path="res://icon.svg" id="2_p645u"]
+
+[sub_resource type="Gradient" id="Gradient_ppl0e"]
+offsets = PackedFloat32Array(0, 0.254237, 0.529661, 0.766949, 1)
+colors = PackedColorArray(1, 0.537255, 0.2, 1, 0.901961, 0.270588, 0.223529, 1, 0.678431, 0.184314, 0.270588, 1, 0.239216, 0.2, 0.247059, 1, 0.239216, 0.160784, 0.211765, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g8w12"]
+gradient = SubResource("Gradient_ppl0e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01fwi"]
+shader = ExtResource("1_2qj8q")
+shader_parameter/pixels = 10000.0
+shader_parameter/rotation = 0.0
+shader_parameter/light_origin = Vector2(0.39, 0.39)
+shader_parameter/light_distance1 = 0.5
+shader_parameter/light_distance2 = 0.75
+shader_parameter/time_speed = 0.2
+shader_parameter/dither_size = 0.0
+shader_parameter/size = 20.0
+shader_parameter/OCTAVES = 2
+shader_parameter/seed = 2.035
+shader_parameter/time = 0.0
+shader_parameter/should_dither = false
+shader_parameter/colors = SubResource("GradientTexture1D_g8w12")
+
+[node name="ColorRect" type="Sprite2D"]
+material = SubResource("ShaderMaterial_01fwi")
+texture = ExtResource("2_p645u")
