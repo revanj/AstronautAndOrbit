@@ -1,15 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://0pg85oq54epb"]
+[gd_scene load_steps=6 format=3 uid="uid://0pg85oq54epb"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_4yahq"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_g6v8c"]
-[ext_resource type="Shader" path="res://Planets/Asteroids/Asteroids.gdshader" id="2_qvati"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_02ala"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="3_r3moe"]
-[ext_resource type="PackedScene" uid="uid://cdl2c78ntdfc8" path="res://Planets/Wormhole/Wormhole.tscn" id="6_phsjx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
-render_priority = 0
-shader = ExtResource("2_qvati")
 
 [node name="LevelBase" instance=ExtResource("1_4yahq")]
 
@@ -37,8 +33,5 @@ position = Vector2(-220, -155)
 
 [node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("3_r3moe")]
 position = Vector2(3.99997, 244)
-
-[node name="Wormhole" parent="." index="6" instance=ExtResource("6_phsjx")]
-position = Vector2(-242, -5)
 
 [editable path="Stars/Star"]

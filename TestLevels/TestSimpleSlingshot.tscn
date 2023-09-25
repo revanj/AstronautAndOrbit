@@ -32,5 +32,8 @@ position = Vector2(587, -222)
 [node name="EnergyCrystal3" parent="Crystals" index="2" instance=ExtResource("3_ur5qs")]
 position = Vector2(395, -346)
 
+[node name="Camera2D" parent="." index="4"]
+zoom = Vector2(0.5, 0.5)
+
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
 debug_color = Color(0, 0.596078, 0.701961, 0)

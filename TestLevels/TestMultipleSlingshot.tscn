@@ -41,3 +41,6 @@ position = Vector2(550, -8)
 
 [node name="EnergyCrystal5" parent="Crystals" index="4" instance=ExtResource("3_6xmbc")]
 position = Vector2(691, 242)
+
+[node name="Camera2D" parent="." index="4"]
+zoom = Vector2(0.8, 0.8)
