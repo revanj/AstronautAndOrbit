@@ -14,7 +14,6 @@ size = Vector2(59.6887, 84.0994)
 
 [node name="Spaceship" type="CharacterBody2D" groups=["spaceship"]]
 process_mode = 1
-position = Vector2(6, 0)
 scale = Vector2(0.335072, 0.380502)
 motion_mode = 1
 platform_on_leave = 2

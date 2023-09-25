@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://csd2schrxcnwp"]
+
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_lkqud"]
+[ext_resource type="Shader" path="res://Planets/Asteroids/Asteroids.gdshader" id="2_e10mb"]
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="3_l6cl2"]
+[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="4_5lhh6"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="5_spwf6"]
+[ext_resource type="PackedScene" uid="uid://cdl2c78ntdfc8" path="res://Planets/Wormhole/Wormhole.tscn" id="6_er7qm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
+render_priority = 0
+shader = ExtResource("2_e10mb")
+
+[node name="LevelBase" instance=ExtResource("1_lkqud")]
+
+[node name="Spaceship" parent="." index="0"]
+position = Vector2(-158, -7)
+starting_big_jump_fuel = 0
+starting_velocity = 633.335
+
+[node name="Stars" parent="." index="1"]
+material = SubResource("ShaderMaterial_2lpja")
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("3_l6cl2")]
+texture = ExtResource("4_5lhh6")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("4_5lhh6")
+
+[node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("5_spwf6")]
+position = Vector2(204, -156)
+
+[node name="EnergyCrystal3" parent="Crystals" index="1" instance=ExtResource("5_spwf6")]
+position = Vector2(-220, -155)
+
+[node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("5_spwf6")]
+position = Vector2(3.99997, 244)
+
+[node name="Wormhole" parent="." index="6" instance=ExtResource("6_er7qm")]
+position = Vector2(-242, -5)
+
+[editable path="Stars/Star"]

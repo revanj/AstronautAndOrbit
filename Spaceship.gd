@@ -36,6 +36,8 @@ var cache_spaceship_velocity: Vector2
 var drag_start_position: Vector2
 var max_jump_speed = 500
 
+var heading_delta = 0;
+
 var fuel_decrease_amount = 0.3
 var big_jump_fuel_amount = 30
 
@@ -83,12 +85,14 @@ func _physics_process(delta):
 			else:
 				spaceship.disable_flame()
 			if Input.is_action_pressed("thruster_brake"):
-				spaceship.velocity *= 0.95
+				spaceship.velocity *= 0.97
 				fuel_meter -= fuel_decrease_amount
 			if Input.is_action_pressed("thruster_left_turn"):
 				spaceship.turn_heading(-turn_factor)
 			if Input.is_action_pressed("thruster_right_turn"):
 				spaceship.turn_heading(turn_factor)
+				
+			heading_direction = velocity.normalized().rotated(heading_delta)
 			
 			velocity += field_dir * delta
 			display_velocity = velocity
@@ -129,7 +133,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func turn_heading(rad):
-	heading_direction = heading_direction.rotated(rad)
+	heading_delta += rad
 	
 # this gurantees cached velocity to be loaded by next frame start
 func load_velocity(vel: Vector2):

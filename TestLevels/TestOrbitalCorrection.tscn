@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdl2c78ntdfc8" path="res://Planets/Wormhole/Wormhole.tscn" id="6_phsjx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
+render_priority = 0
 shader = ExtResource("2_qvati")
 
 [node name="LevelBase" instance=ExtResource("1_4yahq")]
