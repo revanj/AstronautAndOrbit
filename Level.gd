@@ -8,6 +8,7 @@ class_name Level
 @onready var stars = $Stars.get_children()
 @onready var spaceship:Spaceship = $Spaceship
 @onready var death_area = $DeathArea
+@onready var death_beams = get_tree().get_nodes_in_group("death_beam")
 
 func _ready():
 	# GameManager.find_current_level()
@@ -28,3 +29,6 @@ func _ready():
 		s.player_dead_by_star.connect(ui._on_player_dead_by_star)
 	
 	death_area.player_dead_by_out_of_bounds.connect(ui._on_player_dead_by_out_of_bounds)
+	
+	for b in death_beams:
+		b.player_dead_by_star.connect(ui._on_player_dead_by_star)

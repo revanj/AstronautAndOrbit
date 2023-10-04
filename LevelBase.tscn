@@ -32,7 +32,7 @@ position = Vector2(-292, -4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="DeathArea" type="Area2D" parent="."]
+[node name="DeathArea" type="Area2D" parent="." groups=["death_area"]]
 script = ExtResource("4_uwhqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]

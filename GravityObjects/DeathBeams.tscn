@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://s0ago0barwn0"]
+
+[ext_resource type="Script" path="res://TestLevels/Rotate.gd" id="1_g3eu1"]
+[ext_resource type="Texture2D" uid="uid://c5624ynux23s" path="res://Art/Beam.svg" id="2_vmvno"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqr2j"]
+size = Vector2(464, 20)
+
+[node name="DeathBeams" type="Area2D" groups=["death_beam"]]
+script = ExtResource("1_g3eu1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-285, 0)
+shape = SubResource("RectangleShape2D_kqr2j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(285, 0)
+shape = SubResource("RectangleShape2D_kqr2j")
+
+[node name="Beam" type="Sprite2D" parent="."]
+position = Vector2(-279, 0)
+scale = Vector2(2.3968, 2.3968)
+texture = ExtResource("2_vmvno")
+
+[node name="Beam2" type="Sprite2D" parent="."]
+position = Vector2(279, 0)
+rotation = -3.14159
+scale = Vector2(2.397, 2.397)
+texture = ExtResource("2_vmvno")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
