@@ -9,20 +9,20 @@
 [node name="LevelBase" instance=ExtResource("1_vfgw3")]
 
 [node name="Spaceship" parent="." index="0"]
-position = Vector2(-368, 146)
+position = Vector2(-749, 166)
 starting_big_jump_fuel = 0
 starting_fuel = 30.0
-starting_velocity = 500.0
+starting_velocity = 400.0
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_7bsnp")]
-position = Vector2(-147, 143)
+position = Vector2(-441, 161)
 texture = ExtResource("3_ix4v4")
 effect_radius = 571.605
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("2_7bsnp")]
 position = Vector2(154, -131)
 texture = ExtResource("4_ga58w")
-effect_radius = 502.755
+effect_radius = 300.0
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("3_chk8m")]
 position = Vector2(129, -294)

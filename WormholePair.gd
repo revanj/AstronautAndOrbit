@@ -9,13 +9,15 @@ var can_teleport_area2d_2 = true
 
 func _on_area_2d_body_entered(body):
 	if can_teleport_area2d:
-		body.global_position = area2d2.global_position
+		var delta_pos = area2d.global_position - body.global_position
+		body.global_position = area2d2.global_position - delta_pos
 		can_teleport_area2d_2 = false
 	
 	
 func _on_area_2d_2_body_entered(body):
 	if can_teleport_area2d_2:
-		body.global_position = area2d.global_position
+		var delta_pos = area2d2.global_position - body.global_position
+		body.global_position = area2d.global_position - delta_pos
 		can_teleport_area2d = false
 
 

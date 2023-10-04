@@ -1,27 +1,316 @@
-[gd_scene load_steps=8 format=3 uid="uid://csd2schrxcnwp"]
+[gd_scene load_steps=15 format=3 uid="uid://csd2schrxcnwp"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_lkqud"]
 [ext_resource type="Shader" path="res://Planets/Asteroids/Asteroids.gdshader" id="2_e10mb"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="3_l6cl2"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="4_5lhh6"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="5_spwf6"]
-[ext_resource type="PackedScene" uid="uid://cdl2c78ntdfc8" path="res://Planets/Wormhole/Wormhole.tscn" id="6_er7qm"]
+[ext_resource type="PackedScene" uid="uid://db2kox2r462sm" path="res://WormholePair.tscn" id="6_4g3bf"]
+[ext_resource type="Texture2D" uid="uid://uk4qtgq8emu8" path="res://Art/Shaders/BlueWormhole.tres" id="7_yvk8o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
-render_priority = 0
 shader = ExtResource("2_e10mb")
+shader_parameter/pixels = null
+shader_parameter/rotation = 1.0
+shader_parameter/light_origin = Vector2(0.39, 0.39)
+shader_parameter/time_speed = 0.2
+shader_parameter/color1 = null
+shader_parameter/color2 = null
+shader_parameter/color3 = null
+shader_parameter/size = 50.0
+shader_parameter/OCTAVES = null
+shader_parameter/seed = null
+shader_parameter/should_dither = true
+
+[sub_resource type="Shader" id="Shader_7v05a"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float pixels : hint_range(10,10000);
+uniform float rotation : hint_range(0.0, 6.28) = 0.0;
+uniform float time_speed : hint_range(0.0, 1.0) = 0.2;
+uniform float dither_size : hint_range(0.0, 10.0) = 2.0;
+uniform bool should_dither = true;
+uniform sampler2D colorscheme;
+
+uniform float size = 50.0;
+uniform int OCTAVES : hint_range(0, 20, 1);
+uniform float seed: hint_range(1, 10);
+
+uniform float time = 0.0;
+uniform float tilt = 4.0;
+uniform float n_layers = 4.0;
+uniform float layer_height = 0.4;
+uniform float zoom = 2.0;
+uniform float n_colors = 7.0;
+uniform float swirl = -9.0;
+
+float rand(vec2 coord) {
+	return fract(sin(dot(coord.xy ,vec2(12.9898,78.233))) * 15.5453 * seed);
+}
+
+float noise(vec2 coord){
+	vec2 i = floor(coord);
+	vec2 f = fract(coord);
+		
+	float a = rand(i);
+	float b = rand(i + vec2(1.0, 0.0));
+	float c = rand(i + vec2(0.0, 1.0));
+	float d = rand(i + vec2(1.0, 1.0));
+
+	vec2 cubic = f * f * (3.0 - 2.0 * f);
+
+	return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
+}
+
+float fbm(vec2 coord){
+	float value = 0.0;
+	float scale = 0.5;
+
+	for(int i = 0; i < OCTAVES ; i++){
+		value += noise(coord) * scale;
+		coord *= 2.0;
+		scale *= 0.5;
+	}
+	return value;
+}
+
+vec2 rotate(vec2 coord, float angle){
+	coord -= 0.5;
+	coord *= mat2(vec2(cos(angle),-sin(angle)),vec2(sin(angle),cos(angle)));
+	return coord + 0.5;
+}
+
+bool dither(vec2 uv1, vec2 uv2) {
+	return mod(uv1.x+uv2.y,2.0/pixels) <= 1.0 / pixels;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	uv = floor(uv * pixels) / pixels;
+	bool dith = dither(uv, UV);
+	
+	// I added a little zooming functionality so I dont have to mess with other values to get correct sizing.
+	uv *= zoom;
+	uv -= (zoom - 1.0) / 2.0;
+	
+	// overall rotation of galaxy
+	uv = rotate(uv, rotation);
+	vec2 uv2 = uv; // save a copy of untranslated uv for later
+
+	// this uv is used to determine where the \"layers\" will be
+	uv.y *= tilt;
+	uv.y -= (tilt - 1.0) / 2.0;
+
+	float d_to_center = distance(uv, vec2(0.5, 0.5));
+	// swirl uv around the center, the further from the center the more rotated.
+	float rot = swirl * pow(d_to_center, 0.4);
+	vec2 rotated_uv = rotate(uv, rot + time * time_speed);
+
+	// fbm will decide where the layers are
+	float f1 = fbm(rotated_uv * size);
+	// quantize to a few different values, so layers don't blur through each other
+	f1 = floor(f1 * n_layers) / n_layers;
+
+	// use the unaltered second uv for the actual galaxy
+	// tilt so it looks like it's an angle.
+	uv2.y *= tilt;
+	uv2.y -= (tilt - 1.0) / 2.0 + f1 * layer_height;
+
+	// now do the same stuff as before, but for the actual galaxy image, not the layers
+	float d_to_center2 = distance(uv2, vec2(0.5, 0.5));
+    float rot2 = swirl * pow(d_to_center2, 0.4);
+	vec2 rotated_uv2 = rotate(uv2, rot2 + time * time_speed);
+	// I offset the second fbm by some amount so the don't all use the same noise, try it wihout and the layers are very obvious
+	float f2 = fbm(rotated_uv2 * size + vec2(f1) * 10.0);
+
+	// alpha
+	float a = step(f2 + d_to_center2, 0.7);
+	
+	// some final steps to choose a nice color
+	f2 *= 2.3;
+	if(should_dither && dith) { // dithering
+		f2 *= 0.94;
+	}
+	f2 = floor(f2 * (n_colors + 1.0)) / n_colors;
+	vec4 col = texture(colorscheme, vec2(f2, 0.0));
+	
+	COLOR = vec4(col.rgb, a * col.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txgx7"]
+shader = SubResource("Shader_7v05a")
+shader_parameter/pixels = 5000.0
+shader_parameter/rotation = 0.0
+shader_parameter/time_speed = 0.2
+shader_parameter/dither_size = 2.0
+shader_parameter/should_dither = false
+shader_parameter/size = 5.0
+shader_parameter/OCTAVES = 2
+shader_parameter/seed = 1.0
+shader_parameter/time = 0.0
+shader_parameter/tilt = 1.0
+shader_parameter/n_layers = 4.0
+shader_parameter/layer_height = 0.0
+shader_parameter/zoom = 1.2
+shader_parameter/n_colors = 7.0
+shader_parameter/swirl = -8.0
+shader_parameter/colorscheme = ExtResource("7_yvk8o")
+
+[sub_resource type="Shader" id="Shader_27brx"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float pixels : hint_range(10,10000);
+uniform float rotation : hint_range(0.0, 6.28) = 0.0;
+uniform float time_speed : hint_range(0.0, 1.0) = 0.2;
+uniform float dither_size : hint_range(0.0, 10.0) = 2.0;
+uniform bool should_dither = true;
+uniform sampler2D colorscheme;
+
+uniform float size = 50.0;
+uniform int OCTAVES : hint_range(0, 20, 1);
+uniform float seed: hint_range(1, 10);
+
+uniform float time = 0.0;
+uniform float tilt = 4.0;
+uniform float n_layers = 4.0;
+uniform float layer_height = 0.4;
+uniform float zoom = 2.0;
+uniform float n_colors = 7.0;
+uniform float swirl = -9.0;
+
+float rand(vec2 coord) {
+	return fract(sin(dot(coord.xy ,vec2(12.9898,78.233))) * 15.5453 * seed);
+}
+
+float noise(vec2 coord){
+	vec2 i = floor(coord);
+	vec2 f = fract(coord);
+		
+	float a = rand(i);
+	float b = rand(i + vec2(1.0, 0.0));
+	float c = rand(i + vec2(0.0, 1.0));
+	float d = rand(i + vec2(1.0, 1.0));
+
+	vec2 cubic = f * f * (3.0 - 2.0 * f);
+
+	return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
+}
+
+float fbm(vec2 coord){
+	float value = 0.0;
+	float scale = 0.5;
+
+	for(int i = 0; i < OCTAVES ; i++){
+		value += noise(coord) * scale;
+		coord *= 2.0;
+		scale *= 0.5;
+	}
+	return value;
+}
+
+vec2 rotate(vec2 coord, float angle){
+	coord -= 0.5;
+	coord *= mat2(vec2(cos(angle),-sin(angle)),vec2(sin(angle),cos(angle)));
+	return coord + 0.5;
+}
+
+bool dither(vec2 uv1, vec2 uv2) {
+	return mod(uv1.x+uv2.y,2.0/pixels) <= 1.0 / pixels;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	uv = floor(uv * pixels) / pixels;
+	bool dith = dither(uv, UV);
+	
+	// I added a little zooming functionality so I dont have to mess with other values to get correct sizing.
+	uv *= zoom;
+	uv -= (zoom - 1.0) / 2.0;
+	
+	// overall rotation of galaxy
+	uv = rotate(uv, rotation);
+	vec2 uv2 = uv; // save a copy of untranslated uv for later
+
+	// this uv is used to determine where the \"layers\" will be
+	uv.y *= tilt;
+	uv.y -= (tilt - 1.0) / 2.0;
+
+	float d_to_center = distance(uv, vec2(0.5, 0.5));
+	// swirl uv around the center, the further from the center the more rotated.
+	float rot = swirl * pow(d_to_center, 0.4);
+	vec2 rotated_uv = rotate(uv, rot + time * time_speed);
+
+	// fbm will decide where the layers are
+	float f1 = fbm(rotated_uv * size);
+	// quantize to a few different values, so layers don't blur through each other
+	f1 = floor(f1 * n_layers) / n_layers;
+
+	// use the unaltered second uv for the actual galaxy
+	// tilt so it looks like it's an angle.
+	uv2.y *= tilt;
+	uv2.y -= (tilt - 1.0) / 2.0 + f1 * layer_height;
+
+	// now do the same stuff as before, but for the actual galaxy image, not the layers
+	float d_to_center2 = distance(uv2, vec2(0.5, 0.5));
+    float rot2 = swirl * pow(d_to_center2, 0.4);
+	vec2 rotated_uv2 = rotate(uv2, rot2 + time * time_speed);
+	// I offset the second fbm by some amount so the don't all use the same noise, try it wihout and the layers are very obvious
+	float f2 = fbm(rotated_uv2 * size + vec2(f1) * 10.0);
+
+	// alpha
+	float a = step(f2 + d_to_center2, 0.7);
+	
+	// some final steps to choose a nice color
+	f2 *= 2.3;
+	if(should_dither && dith) { // dithering
+		f2 *= 0.94;
+	}
+	f2 = floor(f2 * (n_colors + 1.0)) / n_colors;
+	vec4 col = texture(colorscheme, vec2(f2, 0.0));
+	
+	COLOR = vec4(col.rgb, a * col.a);
+}"
+
+[sub_resource type="Gradient" id="Gradient_2mnfu"]
+offsets = PackedFloat32Array(0, 0.182203, 0.381356, 0.605932, 0.813559, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.4717, 0.673878, 0.89, 1, 0.3654, 0.69339, 0.87, 1, 0.239216, 0.431373, 0.439216, 1, 0.196078, 0.243137, 0.309804, 1, 0.196078, 0.160784, 0.278431, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_374nw"]
+gradient = SubResource("Gradient_2mnfu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtr56"]
+shader = SubResource("Shader_27brx")
+shader_parameter/pixels = 5000.0
+shader_parameter/rotation = 0.0
+shader_parameter/time_speed = 0.2
+shader_parameter/dither_size = 2.0
+shader_parameter/should_dither = false
+shader_parameter/size = 5.0
+shader_parameter/OCTAVES = 2
+shader_parameter/seed = 1.0
+shader_parameter/time = 0.0
+shader_parameter/tilt = 1.0
+shader_parameter/n_layers = 4.0
+shader_parameter/layer_height = 0.0
+shader_parameter/zoom = 1.2
+shader_parameter/n_colors = 7.0
+shader_parameter/swirl = -8.0
+shader_parameter/colorscheme = SubResource("GradientTexture1D_374nw")
 
 [node name="LevelBase" instance=ExtResource("1_lkqud")]
 
 [node name="Spaceship" parent="." index="0"]
-position = Vector2(-158, -7)
+position = Vector2(-674, 157)
 starting_big_jump_fuel = 0
-starting_velocity = 633.335
+starting_velocity = 584.795
 
 [node name="Stars" parent="." index="1"]
 material = SubResource("ShaderMaterial_2lpja")
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("3_l6cl2")]
+position = Vector2(-473, 146)
 texture = ExtResource("4_5lhh6")
 effect_radius = 350.0
 
@@ -29,16 +318,47 @@ effect_radius = 350.0
 scale = Vector2(1, 1)
 texture = ExtResource("4_5lhh6")
 
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("3_l6cl2")]
+position = Vector2(496, -129)
+texture = ExtResource("4_5lhh6")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star2" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("4_5lhh6")
+
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("5_spwf6")]
-position = Vector2(204, -156)
+position = Vector2(-336, -9.53674e-07)
 
 [node name="EnergyCrystal3" parent="Crystals" index="1" instance=ExtResource("5_spwf6")]
-position = Vector2(-220, -155)
+position = Vector2(-297, 253)
 
 [node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("5_spwf6")]
-position = Vector2(3.99997, 244)
+position = Vector2(339, -244)
 
-[node name="Wormhole" parent="." index="6" instance=ExtResource("6_er7qm")]
-position = Vector2(-242, -5)
+[node name="EnergyCrystal5" parent="Crystals" index="3" instance=ExtResource("5_spwf6")]
+position = Vector2(319, -39)
+
+[node name="WormholePair" parent="." index="6" instance=ExtResource("6_4g3bf")]
+modulate = Color(1, 0.694118, 1, 1)
+
+[node name="Wormhole" parent="WormholePair" index="0"]
+position = Vector2(-473, 346)
+
+[node name="Wormhole2" parent="WormholePair" index="1"]
+position = Vector2(496, 71)
+
+[node name="WormholePair2" parent="." index="7" instance=ExtResource("6_4g3bf")]
+
+[node name="Wormhole" parent="WormholePair2" index="0"]
+material = SubResource("ShaderMaterial_txgx7")
+position = Vector2(-473, -54)
+
+[node name="Wormhole2" parent="WormholePair2" index="1"]
+material = SubResource("ShaderMaterial_mtr56")
+position = Vector2(496, -329)
 
 [editable path="Stars/Star"]
+[editable path="Stars/Star2"]
+[editable path="WormholePair"]
+[editable path="WormholePair2"]
