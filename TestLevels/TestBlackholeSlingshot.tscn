@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvvl274q254bv"]
+
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_04xow"]
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_ml148"]
+[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_gxqn4"]
+[ext_resource type="Texture2D" uid="uid://dki37mdp4ivu7" path="res://Art/StarBlackholered.svg" id="4_i2kw4"]
+[ext_resource type="Script" path="res://TestLevels/Ergosphere.gd" id="5_0htys"]
+[ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Arrow2.png" id="6_xka31"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
+
+[node name="LevelBase" instance=ExtResource("1_04xow")]
+
+[node name="Spaceship" parent="." index="0"]
+position = Vector2(-564, 5)
+starting_big_jump_fuel = 0
+starting_velocity = 633.335
+
+[node name="Stars" parent="." index="1"]
+material = SubResource("ShaderMaterial_2lpja")
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("2_ml148")]
+texture_filter = 1
+position = Vector2(-403, 4)
+texture = ExtResource("3_gxqn4")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_gxqn4")
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_ml148")]
+position = Vector2(375, 5)
+texture = ExtResource("4_i2kw4")
+
+[node name="Ergosphere" type="Node2D" parent="Stars/Star2" index="2"]
+script = ExtResource("5_0htys")
+arrow_texture = ExtResource("6_xka31")
+
+[editable path="Stars/Star"]

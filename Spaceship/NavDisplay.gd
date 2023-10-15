@@ -30,7 +30,7 @@ func _ready():
 	global_rotation = 0
 	scale = Vector2.ONE
 	stars = get_tree().get_nodes_in_group("gravity_objects")
-	half_texture_width = arrow_texture.get_width()/2
+	half_texture_width = arrow_texture.get_width()/2.0
 	
 func get_field_at(pos):
 	var result = Vector2.ZERO

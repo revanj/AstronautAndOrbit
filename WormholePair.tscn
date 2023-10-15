@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://WormholePair.gd" id="1_bjyp3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ak03"]
-radius = 47.7598
+radius = 36.0555
 
 [node name="WormholePair" type="Node2D"]
 script = ExtResource("1_bjyp3")
