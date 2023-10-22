@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvvl274q254bv"]
+[gd_scene load_steps=6 format=3 uid="uid://cvvl274q254bv"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_04xow"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_ml148"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_gxqn4"]
-[ext_resource type="Texture2D" uid="uid://dki37mdp4ivu7" path="res://Art/StarBlackholered.svg" id="4_i2kw4"]
-[ext_resource type="Script" path="res://TestLevels/Ergosphere.gd" id="5_0htys"]
-[ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Arrow2.png" id="6_xka31"]
+[ext_resource type="PackedScene" uid="uid://u0a0gbin38w1" path="res://GravityObjects/Blackhole.tscn" id="4_nrkt6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
 
@@ -29,12 +27,7 @@ effect_radius = 350.0
 scale = Vector2(1, 1)
 texture = ExtResource("3_gxqn4")
 
-[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_ml148")]
-position = Vector2(375, 5)
-texture = ExtResource("4_i2kw4")
-
-[node name="Ergosphere" type="Node2D" parent="Stars/Star2" index="2"]
-script = ExtResource("5_0htys")
-arrow_texture = ExtResource("6_xka31")
+[node name="Blackhole" parent="Stars" index="1" instance=ExtResource("4_nrkt6")]
+position = Vector2(104, 0)
 
 [editable path="Stars/Star"]

@@ -2,7 +2,6 @@
 class_name GravityObject
 extends Area2D
 
-
 @export var gravity_factor = 100000
 @export var texture: Texture2D:
 	set(value):

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://u0a0gbin38w1"]
+
+[ext_resource type="Script" path="res://GravityObjects/Blackhole.gd" id="1_k3sx1"]
+[ext_resource type="Texture2D" uid="uid://dki37mdp4ivu7" path="res://Art/StarBlackholered.svg" id="2_gfrdb"]
+[ext_resource type="Script" path="res://TestLevels/Ergosphere.gd" id="3_p8q08"]
+[ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Arrow2.png" id="4_f0vb6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0nn2"]
+radius = 151.199
+
+[node name="Blackhole" type="Area2D" groups=["gravity_objects", "stars"]]
+script = ExtResource("1_k3sx1")
+effect_radius = 303.15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d0nn2")
+debug_color = Color(0.929412, 0.172549, 0.517647, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.415174, 0.415174)
+texture = ExtResource("2_gfrdb")
+
+[node name="ErgosphereVisual" type="Node2D" parent="."]
+script = ExtResource("3_p8q08")
+arrow_texture = ExtResource("4_f0vb6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
