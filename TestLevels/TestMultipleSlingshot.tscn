@@ -16,11 +16,11 @@ starting_velocity = 680.0
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_or21u")]
 position = Vector2(169, -157)
 texture = ExtResource("3_1v482")
-effect_radius = 350.0
+effect_radius = 411.785
 
 [node name="Star3" parent="Stars" index="1" instance=ExtResource("2_or21u")]
 position = Vector2(-412, 184)
-effect_radius = 350.0
+effect_radius = 472.305
 
 [node name="Star2" parent="Stars" index="2" instance=ExtResource("2_or21u")]
 position = Vector2(451, 209)
@@ -44,3 +44,6 @@ position = Vector2(691, 242)
 
 [node name="Camera2D" parent="." index="4"]
 zoom = Vector2(0.8, 0.8)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(13, 751)

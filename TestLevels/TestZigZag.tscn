@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://wq0repfe8yqh"]
+
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_b00ni"]
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_wy4ki"]
+[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_7qkvq"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="4_wmolu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
+
+[node name="LevelBase" instance=ExtResource("1_b00ni")]
+
+[node name="Spaceship" parent="." index="0"]
+position = Vector2(-195, 18)
+starting_big_jump_fuel = 0
+starting_velocity = 633.335
+
+[node name="Stars" parent="." index="1"]
+material = SubResource("ShaderMaterial_2lpja")
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("2_wy4ki")]
+position = Vector2(-43, 24)
+texture = ExtResource("3_7qkvq")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_7qkvq")
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_wy4ki")]
+position = Vector2(399, -254)
+texture = ExtResource("3_7qkvq")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star2" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_7qkvq")
+
+[node name="Star3" parent="Stars" index="2" instance=ExtResource("2_wy4ki")]
+position = Vector2(867, 0)
+texture = ExtResource("3_7qkvq")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star3" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_7qkvq")
+
+[node name="Star4" parent="Stars" index="3" instance=ExtResource("2_wy4ki")]
+position = Vector2(1286, -278)
+texture = ExtResource("3_7qkvq")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star4" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_7qkvq")
+
+[node name="Star5" parent="Stars" index="4" instance=ExtResource("2_wy4ki")]
+position = Vector2(1701, 16)
+texture = ExtResource("3_7qkvq")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star5" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_7qkvq")
+
+[node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("4_wmolu")]
+position = Vector2(204, -156)
+
+[node name="EnergyCrystal3" parent="Crystals" index="1" instance=ExtResource("4_wmolu")]
+position = Vector2(-220, -155)
+
+[node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("4_wmolu")]
+position = Vector2(3.99997, 244)
+
+[node name="Camera2D" parent="." index="4"]
+position = Vector2(823, -97)
+zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(9, 498)
+
+[node name="CollisionShape2D2" parent="DeathArea" index="1"]
+position = Vector2(-788, -1)
+
+[node name="CollisionShape2D3" parent="DeathArea" index="2"]
+position = Vector2(795, -21)
+
+[node name="CollisionShape2D4" parent="DeathArea" index="3"]
+position = Vector2(1, -476)
+
+[editable path="Stars/Star"]
+[editable path="Stars/Star2"]
+[editable path="Stars/Star3"]
+[editable path="Stars/Star4"]
+[editable path="Stars/Star5"]

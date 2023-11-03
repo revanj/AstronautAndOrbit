@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvvl274q254bv"]
+[gd_scene load_steps=7 format=3 uid="uid://cvvl274q254bv"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_04xow"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_ml148"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_gxqn4"]
 [ext_resource type="PackedScene" uid="uid://u0a0gbin38w1" path="res://GravityObjects/Blackhole.tscn" id="4_nrkt6"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="5_i0vph"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
 
 [node name="LevelBase" instance=ExtResource("1_04xow")]
 
 [node name="Spaceship" parent="." index="0"]
-position = Vector2(-564, 5)
+position = Vector2(-685, -3)
 starting_big_jump_fuel = 0
 starting_velocity = 633.335
 
@@ -19,15 +20,66 @@ material = SubResource("ShaderMaterial_2lpja")
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_ml148")]
 texture_filter = 1
-position = Vector2(-403, 4)
+position = Vector2(-512, 13)
 texture = ExtResource("3_gxqn4")
-effect_radius = 350.0
+effect_radius = 316.79
 
 [node name="Sprite2D" parent="Stars/Star" index="1"]
 scale = Vector2(1, 1)
 texture = ExtResource("3_gxqn4")
 
-[node name="Blackhole" parent="Stars" index="1" instance=ExtResource("4_nrkt6")]
-position = Vector2(104, 0)
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_ml148")]
+texture_filter = 1
+position = Vector2(656, -230)
+gravity_factor = 230000000
+texture = ExtResource("3_gxqn4")
+effect_radius = 389.815
+
+[node name="Sprite2D" parent="Stars/Star2" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_gxqn4")
+
+[node name="Star3" parent="Stars" index="2" instance=ExtResource("2_ml148")]
+texture_filter = 1
+position = Vector2(-332, 622)
+gravity_factor = 330000000
+texture = ExtResource("3_gxqn4")
+effect_radius = 372.14
+
+[node name="Sprite2D" parent="Stars/Star3" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_gxqn4")
+
+[node name="Blackhole" parent="Stars" index="3" instance=ExtResource("4_nrkt6")]
+
+[node name="EnergyCrystal" parent="Crystals" index="0" instance=ExtResource("5_i0vph")]
+position = Vector2(-297, 807)
+scale = Vector2(0.911116, 0.911116)
+
+[node name="EnergyCrystal2" parent="Crystals" index="1" instance=ExtResource("5_i0vph")]
+position = Vector2(587, -412)
+scale = Vector2(0.91384, 0.91384)
+
+[node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("5_i0vph")]
+position = Vector2(-129, -184)
+scale = Vector2(0.67907, 0.67907)
+
+[node name="Camera2D" parent="." index="4"]
+position = Vector2(0, 208)
+zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(321, 1061)
+
+[node name="CollisionShape2D2" parent="DeathArea" index="1"]
+position = Vector2(-1207, -14)
+
+[node name="CollisionShape2D3" parent="DeathArea" index="2"]
+position = Vector2(1858, -6)
+
+[node name="CollisionShape2D4" parent="DeathArea" index="3"]
+position = Vector2(123, -685)
 
 [editable path="Stars/Star"]
+[editable path="Stars/Star2"]
+[editable path="Stars/Star3"]

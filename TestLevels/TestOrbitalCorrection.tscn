@@ -34,4 +34,16 @@ position = Vector2(-220, -155)
 [node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("3_r3moe")]
 position = Vector2(3.99997, 244)
 
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(9, 498)
+
+[node name="CollisionShape2D2" parent="DeathArea" index="1"]
+position = Vector2(-838, -6)
+
+[node name="CollisionShape2D3" parent="DeathArea" index="2"]
+position = Vector2(795, -21)
+
+[node name="CollisionShape2D4" parent="DeathArea" index="3"]
+position = Vector2(1, -476)
+
 [editable path="Stars/Star"]

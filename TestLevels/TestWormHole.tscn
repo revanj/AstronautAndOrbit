@@ -339,6 +339,9 @@ position = Vector2(339, -244)
 [node name="EnergyCrystal5" parent="Crystals" index="3" instance=ExtResource("5_spwf6")]
 position = Vector2(319, -39)
 
+[node name="Camera2D" parent="." index="4"]
+zoom = Vector2(0.8, 0.8)
+
 [node name="WormholePair" parent="." index="6" instance=ExtResource("6_4g3bf")]
 modulate = Color(1, 0.694118, 1, 1)
 

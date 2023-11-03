@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://fgmwbw0shedp" path="res://Art/StarYellow.svg" id="4_ga58w"]
 
 [node name="LevelBase" instance=ExtResource("1_vfgw3")]
+metadata/_edit_vertical_guides_ = []
 
 [node name="Spaceship" parent="." index="0"]
 position = Vector2(-749, 166)
@@ -26,3 +27,16 @@ effect_radius = 300.0
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("3_chk8m")]
 position = Vector2(129, -294)
+
+[node name="Camera2D" parent="." index="4"]
+position = Vector2(-119, 120)
+zoom = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(-102, 861)
+
+[node name="CollisionShape2D2" parent="DeathArea" index="1"]
+position = Vector2(-1389, 3)
+
+[node name="CollisionShape2D3" parent="DeathArea" index="2"]
+position = Vector2(1150, 7)

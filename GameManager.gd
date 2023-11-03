@@ -4,7 +4,9 @@ var levels = [
 	"res://TestLevels/TestOrbitalCorrection.tscn",
 	"res://TestLevels/TestThrusterStarShift.tscn",
 	"res://TestLevels/TestSimpleSlingshot.tscn",
-	"res://TestLevels/TestMultipleSlingshot.tscn"
+	"res://TestLevels/TestMultipleSlingshot.tscn",
+	"res://TestLevels/TestWormHole.tscn",
+	"res://TestLevels/TestBlackholeSlingshot.tscn"
 ]
 
 var ending_level = "res://EndingScene.tscn"

@@ -10,5 +10,5 @@ func get_gravity_vector(pos:Vector2):
 	if r < death_radius:
 		return Vector2(NAN, NAN)
 	var radial_vec = pos - (global_position).normalized()
-	var accel_vec = radial_vec.rotated(-PI/6 * 5)
+	var accel_vec = radial_vec.rotated(-PI/8 * 7)
 	return accel_vec * 5

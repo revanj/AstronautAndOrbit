@@ -9,7 +9,7 @@ class_name Spaceship
 #	heading -> used by the display to display spaceship heading 
 
 var forward_speed = 0.5
-var brake_speed = 10
+var brake_factor = 0.98
 var turn_factor = 0.05
 
 enum InputState {
@@ -85,7 +85,7 @@ func _physics_process(delta):
 			else:
 				spaceship.disable_flame()
 			if Input.is_action_pressed("thruster_brake"):
-				spaceship.velocity *= 0.97
+				spaceship.velocity *= brake_factor
 				fuel_meter -= fuel_decrease_amount
 			if Input.is_action_pressed("thruster_left_turn"):
 				spaceship.turn_heading(-turn_factor)
