@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://36drdgfot32y"]
+
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_xddcu"]
+[ext_resource type="Shader" path="res://Planets/Asteroids/Asteroids.gdshader" id="2_tvw6j"]
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="3_pl6mg"]
+[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="4_1a535"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="5_23mq2"]
+[ext_resource type="Texture2D" uid="uid://cgtd6f5q8jxrl" path="res://Art/StarNeutron.svg" id="5_gstwl"]
+[ext_resource type="PackedScene" uid="uid://db2kox2r462sm" path="res://WormholePair.tscn" id="6_hmcqc"]
+[ext_resource type="PackedScene" uid="uid://s0ago0barwn0" path="res://GravityObjects/DeathBeams.tscn" id="6_whfnq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
+shader = ExtResource("2_tvw6j")
+shader_parameter/pixels = null
+shader_parameter/rotation = 1.0
+shader_parameter/light_origin = Vector2(0.39, 0.39)
+shader_parameter/time_speed = 0.2
+shader_parameter/color1 = null
+shader_parameter/color2 = null
+shader_parameter/color3 = null
+shader_parameter/size = 50.0
+shader_parameter/OCTAVES = null
+shader_parameter/seed = null
+shader_parameter/should_dither = true
+
+[node name="LevelBase" instance=ExtResource("1_xddcu")]
+
+[node name="Spaceship" parent="." index="0"]
+position = Vector2(-723, -5.00003)
+starting_big_jump_fuel = 0
+starting_velocity = 584.795
+
+[node name="Stars" parent="." index="1"]
+material = SubResource("ShaderMaterial_2lpja")
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("3_pl6mg")]
+position = Vector2(-550, 0)
+texture = ExtResource("4_1a535")
+effect_radius = 318.03
+
+[node name="Sprite2D" parent="Stars/Star" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("4_1a535")
+
+[node name="CenturalNeutronStar" parent="Stars" index="1" instance=ExtResource("3_pl6mg")]
+position = Vector2(0, -212)
+texture = ExtResource("5_gstwl")
+effect_radius = 430.225
+
+[node name="Sprite2D" parent="Stars/CenturalNeutronStar" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("5_gstwl")
+
+[node name="DeathBeams" parent="Stars/CenturalNeutronStar" index="2" instance=ExtResource("6_whfnq")]
+scale = Vector2(0.679999, 1)
+rotation_rate = 45.0
+
+[node name="Star2" parent="Stars" index="2" instance=ExtResource("3_pl6mg")]
+position = Vector2(550, 0)
+texture = ExtResource("4_1a535")
+effect_radius = 350.0
+
+[node name="Sprite2D" parent="Stars/Star2" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("4_1a535")
+
+[node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("5_23mq2")]
+position = Vector2(682, 127)
+scale = Vector2(0.35881, 0.35881)
+
+[node name="EnergyCrystal4" parent="Crystals" index="1" instance=ExtResource("5_23mq2")]
+position = Vector2(-187, -401)
+
+[node name="EnergyCrystal5" parent="Crystals" index="2" instance=ExtResource("5_23mq2")]
+position = Vector2(2.00003, -519)
+
+[node name="Camera2D" parent="." index="4"]
+position = Vector2(15, -139)
+zoom = Vector2(0.8, 0.8)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(2, 419)
+
+[node name="CollisionShape2D2" parent="DeathArea" index="1"]
+position = Vector2(-923, -1)
+
+[node name="CollisionShape2D3" parent="DeathArea" index="2"]
+position = Vector2(990, 3)
+
+[node name="CollisionShape2D4" parent="DeathArea" index="3"]
+position = Vector2(4, -709)
+
+[node name="WormholePair" parent="." index="6" instance=ExtResource("6_hmcqc")]
+modulate = Color(1, 0.694118, 1, 1)
+
+[node name="Wormhole" parent="WormholePair" index="0"]
+position = Vector2(-550, -230)
+
+[node name="Wormhole2" parent="WormholePair" index="1"]
+position = Vector2(550, 230)
+
+[editable path="Stars/Star"]
+[editable path="Stars/CenturalNeutronStar"]
+[editable path="Stars/Star2"]
+[editable path="WormholePair"]
