@@ -76,16 +76,15 @@ position = Vector2(2.00003, -519)
 
 [node name="Camera2D" parent="." index="4"]
 position = Vector2(15, -139)
-zoom = Vector2(0.8, 0.8)
 
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
-position = Vector2(2, 419)
+position = Vector2(2, 435)
 
 [node name="CollisionShape2D2" parent="DeathArea" index="1"]
-position = Vector2(-923, -1)
+position = Vector2(-1006, 4)
 
 [node name="CollisionShape2D3" parent="DeathArea" index="2"]
-position = Vector2(990, 3)
+position = Vector2(1036, 6)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
 position = Vector2(4, -709)

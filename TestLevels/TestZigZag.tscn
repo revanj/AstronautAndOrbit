@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://wq0repfe8yqh"]
+[gd_scene load_steps=10 format=3 uid="uid://wq0repfe8yqh"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_b00ni"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_wy4ki"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_7qkvq"]
+[ext_resource type="Texture2D" uid="uid://c0l4834alk2ea" path="res://Art/StarWhitedwarf.svg" id="4_08fty"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="4_wmolu"]
+[ext_resource type="Texture2D" uid="uid://dgcs0446kymnp" path="res://Art/StarRed.svg" id="5_c57mj"]
+[ext_resource type="Texture2D" uid="uid://b5415ew3ht8x1" path="res://Art/StarYellowdwarf.svg" id="5_ta2mf"]
+[ext_resource type="Texture2D" uid="uid://b6tmw15kmlkle" path="res://Art/StarBlue.svg" id="7_qc7x0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
 
 [node name="LevelBase" instance=ExtResource("1_b00ni")]
 
 [node name="Spaceship" parent="." index="0"]
-position = Vector2(-195, 18)
+position = Vector2(222, -130)
 starting_big_jump_fuel = 0
 starting_velocity = 633.335
 
@@ -18,7 +22,7 @@ starting_velocity = 633.335
 material = SubResource("ShaderMaterial_2lpja")
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_wy4ki")]
-position = Vector2(-43, 24)
+position = Vector2(-147, 46)
 texture = ExtResource("3_7qkvq")
 effect_radius = 350.0
 
@@ -27,65 +31,84 @@ scale = Vector2(1, 1)
 texture = ExtResource("3_7qkvq")
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("2_wy4ki")]
-position = Vector2(399, -254)
+position = Vector2(368, -99)
 texture = ExtResource("3_7qkvq")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star2" index="1"]
 scale = Vector2(1, 1)
-texture = ExtResource("3_7qkvq")
+texture = ExtResource("4_08fty")
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("2_wy4ki")]
-position = Vector2(867, 0)
+position = Vector2(840, -32)
 texture = ExtResource("3_7qkvq")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star3" index="1"]
 scale = Vector2(1, 1)
-texture = ExtResource("3_7qkvq")
+texture = ExtResource("5_ta2mf")
 
 [node name="Star4" parent="Stars" index="3" instance=ExtResource("2_wy4ki")]
-position = Vector2(1286, -278)
+position = Vector2(596, 377)
 texture = ExtResource("3_7qkvq")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star4" index="1"]
-scale = Vector2(1, 1)
-texture = ExtResource("3_7qkvq")
+scale = Vector2(0.502176, 0.502176)
+texture = ExtResource("5_c57mj")
 
 [node name="Star5" parent="Stars" index="4" instance=ExtResource("2_wy4ki")]
-position = Vector2(1701, 16)
+position = Vector2(126, 405)
 texture = ExtResource("3_7qkvq")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star5" index="1"]
-scale = Vector2(1, 1)
-texture = ExtResource("3_7qkvq")
+scale = Vector2(0.449393, 0.449393)
+texture = ExtResource("7_qc7x0")
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("4_wmolu")]
-position = Vector2(204, -156)
+position = Vector2(100, -34)
+scale = Vector2(0.286199, 0.286199)
 
 [node name="EnergyCrystal3" parent="Crystals" index="1" instance=ExtResource("4_wmolu")]
-position = Vector2(-220, -155)
+position = Vector2(-276, 170)
+scale = Vector2(0.316702, 0.316702)
 
-[node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("4_wmolu")]
+[node name="EnergyCrystal10" parent="Crystals" index="2" instance=ExtResource("4_wmolu")]
+position = Vector2(948, -126)
+scale = Vector2(0.316702, 0.316702)
+
+[node name="EnergyCrystal4" parent="Crystals" index="3" instance=ExtResource("4_wmolu")]
 position = Vector2(3.99997, 244)
+scale = Vector2(0.286, 0.286)
+
+[node name="EnergyCrystal5" parent="Crystals" index="4" instance=ExtResource("4_wmolu")]
+position = Vector2(160, 610)
+scale = Vector2(0.319124, 0.319124)
+
+[node name="EnergyCrystal6" parent="Crystals" index="5" instance=ExtResource("4_wmolu")]
+position = Vector2(658, 577)
+scale = Vector2(0.345798, 0.345798)
+
+[node name="EnergyCrystal7" parent="Crystals" index="6" instance=ExtResource("4_wmolu")]
+position = Vector2(767, 183)
+scale = Vector2(0.345798, 0.345798)
 
 [node name="Camera2D" parent="." index="4"]
-position = Vector2(823, -97)
-zoom = Vector2(0.5, 0.5)
+position = Vector2(397, 215)
+zoom = Vector2(0.8, 0.8)
 
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
-position = Vector2(9, 498)
+position = Vector2(415, 1160)
 
 [node name="CollisionShape2D2" parent="DeathArea" index="1"]
 position = Vector2(-788, -1)
 
 [node name="CollisionShape2D3" parent="DeathArea" index="2"]
-position = Vector2(795, -21)
+position = Vector2(1350, 9)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
-position = Vector2(1, -476)
+position = Vector2(240, -715)
 
 [editable path="Stars/Star"]
 [editable path="Stars/Star2"]
