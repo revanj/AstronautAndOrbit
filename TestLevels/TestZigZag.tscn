@@ -1,13 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://wq0repfe8yqh"]
+[gd_scene load_steps=6 format=3 uid="uid://wq0repfe8yqh"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_b00ni"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_wy4ki"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_7qkvq"]
-[ext_resource type="Texture2D" uid="uid://c0l4834alk2ea" path="res://Art/StarWhitedwarf.svg" id="4_08fty"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="4_wmolu"]
-[ext_resource type="Texture2D" uid="uid://dgcs0446kymnp" path="res://Art/StarRed.svg" id="5_c57mj"]
-[ext_resource type="Texture2D" uid="uid://b5415ew3ht8x1" path="res://Art/StarYellowdwarf.svg" id="5_ta2mf"]
-[ext_resource type="Texture2D" uid="uid://b6tmw15kmlkle" path="res://Art/StarBlue.svg" id="7_qc7x0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
 
@@ -37,7 +33,7 @@ effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star2" index="1"]
 scale = Vector2(1, 1)
-texture = ExtResource("4_08fty")
+texture = ExtResource("3_7qkvq")
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("2_wy4ki")]
 position = Vector2(840, -32)
@@ -46,7 +42,7 @@ effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star3" index="1"]
 scale = Vector2(1, 1)
-texture = ExtResource("5_ta2mf")
+texture = ExtResource("3_7qkvq")
 
 [node name="Star4" parent="Stars" index="3" instance=ExtResource("2_wy4ki")]
 position = Vector2(596, 377)
@@ -54,8 +50,8 @@ texture = ExtResource("3_7qkvq")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star4" index="1"]
-scale = Vector2(0.502176, 0.502176)
-texture = ExtResource("5_c57mj")
+scale = Vector2(0.991766, 0.991766)
+texture = ExtResource("3_7qkvq")
 
 [node name="Star5" parent="Stars" index="4" instance=ExtResource("2_wy4ki")]
 position = Vector2(126, 405)
@@ -63,8 +59,8 @@ texture = ExtResource("3_7qkvq")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star5" index="1"]
-scale = Vector2(0.449393, 0.449393)
-texture = ExtResource("7_qc7x0")
+scale = Vector2(1.00131, 1.00131)
+texture = ExtResource("3_7qkvq")
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("4_wmolu")]
 position = Vector2(100, -34)
