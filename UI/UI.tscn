@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2docaei0vhfr"]
 
-[ext_resource type="Script" path="res://UI.gd" id="1_ukvjj"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_ukvjj"]
 [ext_resource type="PackedScene" uid="uid://blcdi8y5tplqc" path="res://UI/DialogueBox.tscn" id="2_fb0ex"]
-[ext_resource type="PackedScene" uid="uid://cpsqvdopnkhmy" path="res://CrystalCollect.tscn" id="3_d2oqe"]
+[ext_resource type="PackedScene" uid="uid://cpsqvdopnkhmy" path="res://Prefabs/CrystalCollect.tscn" id="3_d2oqe"]
 [ext_resource type="Texture2D" uid="uid://dun23vxn2v24p" path="res://Art/FuelBar.png" id="4_w1uil"]
 [ext_resource type="Texture2D" uid="uid://dy0ohkdf3i38c" path="res://Art/FuelBarFill.png" id="6_fbtm0"]
 

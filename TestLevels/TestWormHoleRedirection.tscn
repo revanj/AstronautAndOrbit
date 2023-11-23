@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://36drdgfot32y"]
 
-[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://LevelBase.tscn" id="1_xddcu"]
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_xddcu"]
 [ext_resource type="Shader" path="res://Planets/Asteroids/Asteroids.gdshader" id="2_tvw6j"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="3_pl6mg"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="4_1a535"]
-[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://EnergyStar.tscn" id="5_23mq2"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="5_23mq2"]
 [ext_resource type="Texture2D" uid="uid://cgtd6f5q8jxrl" path="res://Art/StarNeutron.svg" id="5_gstwl"]
-[ext_resource type="PackedScene" uid="uid://db2kox2r462sm" path="res://WormholePair.tscn" id="6_hmcqc"]
+[ext_resource type="PackedScene" uid="uid://db2kox2r462sm" path="res://Prefabs/WormholePair.tscn" id="6_hmcqc"]
 [ext_resource type="PackedScene" uid="uid://s0ago0barwn0" path="res://GravityObjects/DeathBeams.tscn" id="6_whfnq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
