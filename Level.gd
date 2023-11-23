@@ -5,7 +5,7 @@ class_name Level
 
 @onready var crystals = $Crystals.get_children()
 @onready var ui:UI = $UI
-@onready var stars = $Stars.get_children()
+@onready var stars = get_tree().get_nodes_in_group("stars")
 @onready var spaceship:Spaceship = $Spaceship
 @onready var death_area = $DeathArea
 @onready var death_beams = get_tree().get_nodes_in_group("death_beam")

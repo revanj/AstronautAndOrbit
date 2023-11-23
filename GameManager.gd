@@ -5,7 +5,10 @@ var levels = [
 	"res://TestLevels/TestThrusterStarShift.tscn",
 	"res://TestLevels/TestSimpleSlingshot.tscn",
 	"res://TestLevels/TestMultipleSlingshot.tscn",
+	"res://TestLevels/TestZigZag.tscn",
 	"res://TestLevels/TestWormHole.tscn",
+	"res://TestLevels/TestPulsars.tscn",
+	"res://TestLevels/TestWormHoleRedirection.tscn",
 	"res://TestLevels/TestBlackholeSlingshot.tscn"
 ]
 

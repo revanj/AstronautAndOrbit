@@ -84,7 +84,7 @@ func _physics_process(delta):
 				fuel_meter -= fuel_decrease_amount
 			else:
 				spaceship.disable_flame()
-			if Input.is_action_pressed("thruster_brake"):
+			if Input.is_action_pressed("thruster_brake") && fuel_meter > 0:
 				spaceship.velocity *= brake_factor
 				fuel_meter -= fuel_decrease_amount
 			if Input.is_action_pressed("thruster_left_turn"):
@@ -124,13 +124,17 @@ func _physics_process(delta):
 		velocity = velocity_cached
 		velocity_cached = Vector2.INF
 	
-	
 	star_field.trajectory_data = star_field.get_trajectory(
 		spaceship.global_position,
 		spaceship.display_velocity,
 		200, 1.0/30.0, 10)
+	
+#	print("regen and redraw trajectory")
+	star_field.queue_redraw()
 		
 	move_and_slide()
+	
+	
 
 func turn_heading(rad):
 	heading_delta += rad

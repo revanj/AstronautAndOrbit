@@ -51,6 +51,7 @@ func _physics_process(delta):
 			queue_redraw()
 		previous_speed = spaceship.starting_velocity
 		
+		
 func get_trajectory(start_pos, start_vel, nb_points, dt, ds):
 	var points_arc = PackedVector2Array()
 	var arrow_pos = PackedVector2Array()
@@ -78,7 +79,8 @@ func get_trajectory(start_pos, start_vel, nb_points, dt, ds):
 	
 func _process(delta):
 	if !Engine.is_editor_hint():
-		queue_redraw()
+		# queue_redraw()
+		pass
 
 func _draw():
 	var color = Color(1.0, 1.0, 1.0)
