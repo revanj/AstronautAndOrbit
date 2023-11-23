@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpsqvdopnkhmy"]
 
-[ext_resource type="Texture2D" uid="uid://b0v12hvi7arcb" path="res://Art/EnergyStar.png" id="1_jgrr0"]
+[ext_resource type="Texture2D" uid="uid://b0v12hvi7arcb" path="res://Art/Levels/EnergyStar.png" id="1_jgrr0"]
 
 [node name="CrystalCollect" type="HBoxContainer"]
 anchors_preset = 2

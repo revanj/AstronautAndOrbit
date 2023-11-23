@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://txudggpx5heu"]
 
-[ext_resource type="Texture2D" uid="uid://0l2s4h23a6bx" path="res://Art/FlameRed.png" id="1_res5f"]
+[ext_resource type="Texture2D" uid="uid://0l2s4h23a6bx" path="res://Art/Spaceship/FlameRed.png" id="1_res5f"]
 
 [node name="FuelMeter" type="HBoxContainer"]
 anchors_preset = 3

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bb832x8inl183"]
 
 [ext_resource type="Script" path="res://Scripts/Spaceship.gd" id="1_i0tod"]
-[ext_resource type="Texture2D" uid="uid://bqutp1bnygknl" path="res://Art/ship.png" id="2_v7d53"]
+[ext_resource type="Texture2D" uid="uid://bqutp1bnygknl" path="res://Art/Spaceship/ship.png" id="2_v7d53"]
 [ext_resource type="Script" path="res://Scripts/SpaceshipVisual.gd" id="3_ya8jj"]
 [ext_resource type="PackedScene" uid="uid://cw8ruuwn01bhk" path="res://Spaceship/BigJumpDisplay.tscn" id="4_hw35e"]
-[ext_resource type="Texture2D" uid="uid://0l2s4h23a6bx" path="res://Art/FlameRed.png" id="5_vqsrp"]
-[ext_resource type="Texture2D" uid="uid://ch2y84spiqeix" path="res://Art/FlameBlue.png" id="6_msu38"]
+[ext_resource type="Texture2D" uid="uid://0l2s4h23a6bx" path="res://Art/Spaceship/FlameRed.png" id="5_vqsrp"]
+[ext_resource type="Texture2D" uid="uid://ch2y84spiqeix" path="res://Art/Spaceship/FlameBlue.png" id="6_msu38"]
 [ext_resource type="Script" path="res://Spaceship/NavDisplay.gd" id="7_lsg2s"]
 [ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Arrow2.png" id="8_gha4l"]
 
