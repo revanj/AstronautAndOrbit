@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://w6gs4ljwad72"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_6lo08"]
-[ext_resource type="PackedScene" uid="uid://d2docaei0vhfr" path="res://UI/UI.tscn" id="3_btes0"]
+[ext_resource type="PackedScene" uid="uid://d2docaei0vhfr" path="res://Prefabs/UI/UI.tscn" id="3_btes0"]
 [ext_resource type="Script" path="res://Scripts/DeathArea.gd" id="4_uwhqr"]
 [ext_resource type="PackedScene" uid="uid://bb832x8inl183" path="res://Spaceship/Spaceship.tscn" id="5_jrsr5"]
 
