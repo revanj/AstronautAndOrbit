@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ep8bt4mrb05c"
-path="res://.godot/imported/image.png-266b178c45c091765b9f57e1cb30afdf.ctex"
+uid="uid://2rgi2r70t7sr"
+path="res://.godot/imported/TestPulsars.png-83831f81d136e4ffe2733f1de519c063.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/image.png"
-dest_files=["res://.godot/imported/image.png-266b178c45c091765b9f57e1cb30afdf.ctex"]
+source_file="res://Art/UI/LevelSnapshots/TestPulsars.png"
+dest_files=["res://.godot/imported/TestPulsars.png-83831f81d136e4ffe2733f1de519c063.ctex"]
 
 [params]
 

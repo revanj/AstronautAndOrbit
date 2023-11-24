@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://db2kox2r462sm"]
 
 [ext_resource type="PackedScene" uid="uid://cdl2c78ntdfc8" path="res://Planets/Wormhole/Wormhole.tscn" id="1_4rlku"]
-[ext_resource type="Script" path="res://WormholePair.gd" id="1_bjyp3"]
+[ext_resource type="Script" path="res://Scripts/WormholePair.gd" id="1_bjyp3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ak03"]
 radius = 36.0555

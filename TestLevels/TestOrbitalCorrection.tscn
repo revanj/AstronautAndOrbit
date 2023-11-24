@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_4yahq"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_g6v8c"]
-[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_02ala"]
+[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/Stars/StarFailedwannabe.svg" id="3_02ala"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="3_r3moe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]

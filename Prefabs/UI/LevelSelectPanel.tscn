@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://yqgqpxn0a40q"]
+
+[ext_resource type="Theme" uid="uid://bqoweilw2b87q" path="res://Art/Resources/ui_theme.tres" id="1_bswdd"]
+[ext_resource type="Script" path="res://Scripts/LevelSelectPanel.gd" id="2_0forn"]
+[ext_resource type="Texture2D" uid="uid://ep8bt4mrb05c" path="res://Art/UI/LevelSnapshots/TripleStarShift.png" id="3_1gqg0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bwqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3apxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cv1ek"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_datuk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esl6t"]
+
+[node name="LevelSelectPanel" type="Panel"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+custom_minimum_size = Vector2(0, 276.51)
+offset_right = 399.0
+offset_bottom = 277.0
+size_flags_horizontal = 3
+theme = ExtResource("1_bswdd")
+script = ExtResource("2_0forn")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4bwqk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3apxn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cv1ek")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_datuk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_esl6t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 25.0
+offset_right = -23.0
+offset_bottom = -62.51
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1gqg0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 216.0
+offset_right = 365.0
+offset_bottom = 263.0
+theme_override_font_sizes/font_size = 31
+text = "Something"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

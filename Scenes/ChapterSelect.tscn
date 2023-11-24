@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmj62u51f6fbd"]
 
+[ext_resource type="PackedScene" uid="uid://yqgqpxn0a40q" path="res://Prefabs/UI/LevelSelectPanel.tscn" id="1_f7xqw"]
 [ext_resource type="Theme" uid="uid://bqoweilw2b87q" path="res://Art/Resources/ui_theme.tres" id="1_gnh1n"]
-[ext_resource type="Texture2D" uid="uid://ep8bt4mrb05c" path="res://Art/UI/image.png" id="2_0phtx"]
 
 [sub_resource type="Theme" id="Theme_ie2we"]
 
@@ -45,35 +45,8 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4
 
-[node name="Panel" type="Panel" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer"]
-modulate = Color(1.5, 1.5, 1.5, 1)
-custom_minimum_size = Vector2(0, 276.51)
+[node name="Panel" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
 layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_gnh1n")
-
-[node name="TextureRect" type="TextureRect" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 26.0
-offset_top = 25.0
-offset_right = -23.0
-offset_bottom = -62.51
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_0phtx")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer/Panel"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 216.0
-offset_right = 365.0
-offset_bottom = 263.0
-theme_override_font_sizes/font_size = 31
-text = "Slingshot Far Far Away"
 
 [node name="Panel2" type="Panel" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(0, 276.51)

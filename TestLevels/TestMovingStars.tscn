@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://tfhrrbkbm36e"]
+[gd_scene load_steps=6 format=3 uid="uid://oe0148gy0ywx"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_5qnmd"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_44xs2"]
-[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/StarFailedwannabe.svg" id="3_wivpi"]
+[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/Stars/StarFailedwannabe.svg" id="3_wivpi"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="4_6j80i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
