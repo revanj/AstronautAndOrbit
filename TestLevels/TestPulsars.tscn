@@ -67,7 +67,18 @@ scale = Vector2(0.3189, 0.327036)
 position = Vector2(-287, 92)
 scale = Vector2(0.411383, 0.411383)
 
-[connection signal="pause_game" from="UI" to="." method="_on_ui_pause_game"]
+[node name="Camera2D" parent="." index="4"]
+position = Vector2(0, 35)
+zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(1, 882)
+
+[node name="CollisionShape2D2" parent="DeathArea" index="1"]
+position = Vector2(-1109, -6)
+
+[node name="CollisionShape2D4" parent="DeathArea" index="3"]
+position = Vector2(1, -825)
 
 [editable path="Stars/Star"]
 [editable path="Stars/Star3"]

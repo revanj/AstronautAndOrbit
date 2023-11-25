@@ -315,7 +315,7 @@ texture = ExtResource("4_5lhh6")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star" index="1"]
-scale = Vector2(1, 1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_5lhh6")
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("3_l6cl2")]
@@ -324,7 +324,7 @@ texture = ExtResource("4_5lhh6")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star2" index="1"]
-scale = Vector2(1, 1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_5lhh6")
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("5_spwf6")]
@@ -339,17 +339,20 @@ position = Vector2(339, -244)
 [node name="EnergyCrystal5" parent="Crystals" index="3" instance=ExtResource("5_spwf6")]
 position = Vector2(319, -39)
 
+[node name="Camera2D" parent="." index="4"]
+zoom = Vector2(0.605, 0.605)
+
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
-position = Vector2(4, 600)
+position = Vector2(4, 683)
 
 [node name="CollisionShape2D2" parent="DeathArea" index="1"]
-position = Vector2(-1033, 0)
+position = Vector2(-913, 0)
 
 [node name="CollisionShape2D3" parent="DeathArea" index="2"]
-position = Vector2(1047, 0)
+position = Vector2(900, 0)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
-position = Vector2(4, -610)
+position = Vector2(4, -702)
 
 [node name="WormholePair" parent="." index="6" instance=ExtResource("6_4g3bf")]
 modulate = Color(1, 0.694118, 1, 1)

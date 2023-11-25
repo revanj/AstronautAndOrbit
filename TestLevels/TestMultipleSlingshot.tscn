@@ -29,30 +29,36 @@ effect_radius = 350.0
 
 [node name="EnergyCrystal" parent="Crystals" index="0" instance=ExtResource("3_6xmbc")]
 position = Vector2(386, -227)
+scale = Vector2(0.3, 0.3)
 
 [node name="EnergyCrystal2" parent="Crystals" index="1" instance=ExtResource("3_6xmbc")]
 position = Vector2(256, -374)
+scale = Vector2(0.3, 0.3)
 
 [node name="EnergyCrystal3" parent="Crystals" index="2" instance=ExtResource("3_6xmbc")]
 position = Vector2(72, -353)
+scale = Vector2(0.3, 0.3)
 
 [node name="EnergyCrystal4" parent="Crystals" index="3" instance=ExtResource("3_6xmbc")]
 position = Vector2(550, -8)
+scale = Vector2(0.3, 0.3)
 
 [node name="EnergyCrystal5" parent="Crystals" index="4" instance=ExtResource("3_6xmbc")]
 position = Vector2(691, 242)
+scale = Vector2(0.3, 0.3)
 
 [node name="Camera2D" parent="." index="4"]
 position = Vector2(45, 33)
+zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
-position = Vector2(13, 751)
+position = Vector2(3, 858)
 
 [node name="CollisionShape2D2" parent="DeathArea" index="1"]
-position = Vector2(-994, 5)
+position = Vector2(-1032, -8)
 
 [node name="CollisionShape2D3" parent="DeathArea" index="2"]
-position = Vector2(1055, -6)
+position = Vector2(1124, 2)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
-position = Vector2(1, -632)
+position = Vector2(-2, -787)

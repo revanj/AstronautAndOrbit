@@ -25,7 +25,7 @@ texture = ExtResource("3_gxqn4")
 effect_radius = 316.79
 
 [node name="Sprite2D" parent="Stars/Star" index="1"]
-scale = Vector2(1, 1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_gxqn4")
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("2_ml148")]
@@ -36,7 +36,7 @@ texture = ExtResource("3_gxqn4")
 effect_radius = 389.815
 
 [node name="Sprite2D" parent="Stars/Star2" index="1"]
-scale = Vector2(1, 1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_gxqn4")
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("2_ml148")]
@@ -47,7 +47,7 @@ texture = ExtResource("3_gxqn4")
 effect_radius = 372.14
 
 [node name="Sprite2D" parent="Stars/Star3" index="1"]
-scale = Vector2(1, 1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_gxqn4")
 
 [node name="Blackhole" parent="Stars" index="3" instance=ExtResource("4_nrkt6")]
@@ -66,16 +66,16 @@ scale = Vector2(0.67907, 0.67907)
 
 [node name="Camera2D" parent="." index="4"]
 position = Vector2(80, 182)
-zoom = Vector2(0.65, 0.65)
+zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
 position = Vector2(321, 1061)
 
 [node name="CollisionShape2D2" parent="DeathArea" index="1"]
-position = Vector2(-1480, -14)
+position = Vector2(-1039, -14)
 
 [node name="CollisionShape2D3" parent="DeathArea" index="2"]
-position = Vector2(1632, -6)
+position = Vector2(1210, -6)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
 position = Vector2(123, -685)

@@ -15,20 +15,23 @@ script = ExtResource("1_ukvjj")
 visible = false
 
 [node name="CrystalCollect" parent="." instance=ExtResource("3_d2oqe")]
+offset_top = -77.0
+offset_right = 188.0
 
 [node name="FuelMeter" type="TextureRect" parent="."]
-offset_left = 54.0
-offset_top = 49.0
-offset_right = 399.0
-offset_bottom = 155.0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 390.0
+offset_bottom = 72.0
 texture = ExtResource("4_w1uil")
+expand_mode = 1
 
 [node name="FuelProgress" type="TextureProgressBar" parent="FuelMeter"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 41.0
-offset_right = 484.0
-offset_bottom = 83.0
+offset_left = 27.0
+offset_top = 23.0
+offset_right = 359.0
+offset_bottom = 45.0
 value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("6_fbtm0")

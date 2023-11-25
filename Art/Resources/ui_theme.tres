@@ -36,7 +36,7 @@ texture_margin_right = 140.0
 texture_margin_bottom = 75.0
 
 [resource]
-Button/font_sizes/font_size = 60
+Button/font_sizes/font_size = 40
 Button/styles/focus = SubResource("StyleBoxEmpty_ma7pa")
 Button/styles/hover = SubResource("StyleBoxTexture_polwa")
 Button/styles/normal = SubResource("StyleBoxTexture_dca3v")

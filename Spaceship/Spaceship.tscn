@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://0l2s4h23a6bx" path="res://Art/Spaceship/FlameRed.png" id="5_vqsrp"]
 [ext_resource type="Texture2D" uid="uid://ch2y84spiqeix" path="res://Art/Spaceship/FlameBlue.png" id="6_msu38"]
 [ext_resource type="Script" path="res://Spaceship/NavDisplay.gd" id="7_lsg2s"]
-[ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Arrow2.png" id="8_gha4l"]
+[ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Spaceship/Arrow2.png" id="8_gha4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y11g"]
 size = Vector2(59.6887, 84.0994)
@@ -45,6 +45,9 @@ position = Vector2(0, 236.53)
 texture = ExtResource("6_msu38")
 
 [node name="NavDisplay" type="Node2D" parent="."]
+modulate = Color(0.678118, 0.678118, 0.678118, 1)
+show_behind_parent = true
 top_level = true
+z_index = -1
 script = ExtResource("7_lsg2s")
 arrow_texture = ExtResource("8_gha4l")

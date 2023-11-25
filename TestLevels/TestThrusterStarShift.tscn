@@ -29,16 +29,17 @@ effect_radius = 300.0
 position = Vector2(129, -294)
 
 [node name="Camera2D" parent="." index="4"]
-position = Vector2(-119, 120)
+position = Vector2(-275, 147)
+zoom = Vector2(0.625, 0.625)
 
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
-position = Vector2(-102, 861)
+position = Vector2(-113, 813)
 
 [node name="CollisionShape2D2" parent="DeathArea" index="1"]
 position = Vector2(-1135, 0)
 
 [node name="CollisionShape2D3" parent="DeathArea" index="2"]
-position = Vector2(917, 0)
+position = Vector2(596, 0)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
 position = Vector2(1, -497)

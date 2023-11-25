@@ -73,12 +73,12 @@ func _physics_process(delta):
 	match input_state:
 		InputState.Normal:
 			spaceship.hide_big_jump_display()
-			if Input.is_action_just_pressed("big_jump"):
-				if (big_jump_fuel >= big_jump_fuel_amount):
-					cache_spaceship_velocity = spaceship.velocity
-					drag_start_position = get_global_mouse_position()
-					spaceship.velocity = Vector2.ZERO
-					input_state = InputState.GetBigJump
+#			if Input.is_action_just_pressed("big_jump"):
+#				if (big_jump_fuel >= big_jump_fuel_amount):
+#					cache_spaceship_velocity = spaceship.velocity
+#					drag_start_position = get_global_mouse_position()
+#					spaceship.velocity = Vector2.ZERO
+#					input_state = InputState.GetBigJump
 			if Input.is_action_pressed("thruster_forward") && fuel_meter > 0:
 				spaceship.add_thruster()
 				fuel_meter -= fuel_decrease_amount
@@ -107,10 +107,10 @@ func _physics_process(delta):
 			else:
 				display_velocity = cache_spaceship_velocity
 			
-			if Input.is_action_just_pressed("cancel_big_jump"):
-				spaceship.process_mode = Node.PROCESS_MODE_INHERIT
-				spaceship.load_velocity(cache_spaceship_velocity)
-				input_state = InputState.Normal
+#			if Input.is_action_just_pressed("cancel_big_jump"):
+#				spaceship.process_mode = Node.PROCESS_MODE_INHERIT
+#				spaceship.load_velocity(cache_spaceship_velocity)
+#				input_state = InputState.Normal
 			
 			if Input.is_action_just_released("big_jump"):
 				big_jump_fuel -= big_jump_fuel_amount
@@ -127,7 +127,7 @@ func _physics_process(delta):
 	star_field.trajectory_data = star_field.get_trajectory(
 		spaceship.global_position,
 		spaceship.display_velocity,
-		200, 1.0/30.0, 10)
+		200, 1.0/30.0, 20)
 	
 #	print("regen and redraw trajectory")
 	star_field.queue_redraw()

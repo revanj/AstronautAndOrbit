@@ -22,7 +22,7 @@ texture = ExtResource("3_02ala")
 effect_radius = 350.0
 
 [node name="Sprite2D" parent="Stars/Star" index="1"]
-scale = Vector2(1, 1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_02ala")
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("3_r3moe")]
@@ -35,15 +35,15 @@ position = Vector2(-220, -155)
 position = Vector2(3.99997, 244)
 
 [node name="CollisionShape2D" parent="DeathArea" index="0"]
-position = Vector2(9, 613)
+position = Vector2(9, 442)
 
 [node name="CollisionShape2D2" parent="DeathArea" index="1"]
-position = Vector2(-1024, -6)
+position = Vector2(-578, -6)
 
 [node name="CollisionShape2D3" parent="DeathArea" index="2"]
-position = Vector2(1032, -21)
+position = Vector2(561, -21)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
-position = Vector2(4, -598)
+position = Vector2(4, -425)
 
 [editable path="Stars/Star"]

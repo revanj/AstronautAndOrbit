@@ -83,7 +83,7 @@ func _process(delta):
 		pass
 
 func _draw():
-	var color = Color(1.0, 1.0, 1.0)
+	var color = Color(1, 1, 1)
 	var nb_points = 200
 	
 	if Engine.is_editor_hint():
@@ -92,7 +92,7 @@ func _draw():
 		var calculating_velocity = -spaceship.transform.y * spaceship.starting_velocity
 		trajectory_data = get_trajectory(
 			spaceship.global_position, 
-			calculating_velocity, 200, 1.0/30.0, 10)
+			calculating_velocity, 200, 1.0/30.0, 20)
 			
 			
 	if trajectory_data == null:
@@ -104,8 +104,8 @@ func _draw():
 	var arrow_dir = trajectory_data.arrow_dir
 	
 	draw_set_transform(Vector2.ZERO, 0)
-	for index_point in range(nb_points):
-		draw_circle(points_arc[index_point], 1, color)
+	for index_point in range(nb_points - 1):
+		draw_line(points_arc[index_point], points_arc[index_point + 1], color * float(nb_points - index_point)/nb_points + Color(0,0,0,0) * float(index_point)/nb_points, 1, true)
 	
 	for index_point in range(len(arrow_pos)):
 		draw_set_transform(
@@ -113,4 +113,5 @@ func _draw():
 			Vector2.DOWN.angle_to(arrow_dir[index_point]) + PI,
 			Vector2(0.08, 0.08)
 		)
-		draw_texture(arrow_texture, Vector2(-half_texture_width, 0))
+		var arrow_len = len(arrow_pos)
+		draw_texture(arrow_texture, Vector2(-half_texture_width, 0), color * float(arrow_len - index_point)/arrow_len + Color(0,0,0,0) * float(index_point)/arrow_len)
