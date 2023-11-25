@@ -12,22 +12,19 @@ var levels = [
 	"res://TestLevels/TestBlackholeSlingshot.tscn"
 ]
 
-var ending_level = "res://EndingScene.tscn"
-var title_scene = "res://TitleScene.tscn"
+var ending_level = "res://Scenes/TitleScene.tscn"
+var title_scene = "res://Scenes/EndingScene.tscn"
 
 var current_level: int = 0
 
 func find_current_level():
 	var scene_path = get_tree().current_scene.scene_file_path
-	if scene_path != "":
-		print("scene path", scene_path)
-		current_level = levels.find(scene_path, 0)
-		print("found current level", current_level)
+	return scene_path
 
 func load_next_level():
+	current_level = levels.find(find_current_level())
 	current_level += 1
 	if current_level < len(levels):
-		print("loading level", levels[current_level])
 		get_tree().change_scene_to_file(levels[current_level])
 	else:
 		get_tree().change_scene_to_file(ending_level)

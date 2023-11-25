@@ -59,9 +59,9 @@ layout_mode = 2
 [node name="StartGameButton" parent="VBoxContainer" instance=ExtResource("2_mlboh")]
 layout_mode = 2
 
-[node name="StartGameButton2" parent="VBoxContainer" instance=ExtResource("2_mlboh")]
+[node name="SelectChapterButton" parent="VBoxContainer" instance=ExtResource("2_mlboh")]
 layout_mode = 2
 text = "Select Chapter"
 
-[connection signal="mouse_entered" from="VBoxContainer/StartGameButton" to="VBoxContainer/StartGameButton" method="_on_mouse_entered"]
-[connection signal="mouse_entered" from="VBoxContainer/StartGameButton2" to="VBoxContainer/StartGameButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SelectChapterButton" to="." method="_on_select_chapter_button_pressed"]

@@ -52,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 60
 
-[node name="Button3" type="TextureButton" parent="HBoxContainer"]
+[node name="RestartButton" type="TextureButton" parent="HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 texture_normal = ExtResource("2_uifgw")
@@ -60,11 +60,11 @@ texture_pressed = ExtResource("3_bosc5")
 texture_hover = ExtResource("4_wnfkk")
 script = ExtResource("3_8hqkm")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Button3"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/RestartButton"]
 stream = ExtResource("6_8q7qb")
 bus = &"FX"
 
-[node name="Button2" type="TextureButton" parent="HBoxContainer"]
+[node name="ResumeButton" type="TextureButton" parent="HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 texture_normal = ExtResource("3_pryws")
@@ -72,11 +72,11 @@ texture_pressed = ExtResource("8_i8ixi")
 texture_hover = ExtResource("9_uhjb2")
 script = ExtResource("3_8hqkm")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Button2"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/ResumeButton"]
 stream = ExtResource("6_8q7qb")
 bus = &"FX"
 
-[node name="Button" type="TextureButton" parent="HBoxContainer"]
+[node name="MenuButton" type="TextureButton" parent="HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 texture_normal = ExtResource("4_g4fr5")
@@ -84,10 +84,10 @@ texture_pressed = ExtResource("11_e3sva")
 texture_hover = ExtResource("12_mwn7j")
 script = ExtResource("3_8hqkm")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Button"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/MenuButton"]
 stream = ExtResource("6_8q7qb")
 bus = &"FX"
 
-[connection signal="button_down" from="HBoxContainer/Button3" to="HBoxContainer/Button3" method="_on_button_down"]
-[connection signal="button_down" from="HBoxContainer/Button2" to="HBoxContainer/Button2" method="_on_button_down"]
-[connection signal="button_down" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_button_down"]
+[connection signal="button_down" from="HBoxContainer/RestartButton" to="HBoxContainer/RestartButton" method="_on_button_down"]
+[connection signal="button_down" from="HBoxContainer/ResumeButton" to="HBoxContainer/ResumeButton" method="_on_button_down"]
+[connection signal="button_down" from="HBoxContainer/MenuButton" to="HBoxContainer/MenuButton" method="_on_button_down"]

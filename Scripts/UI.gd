@@ -55,3 +55,14 @@ func _input(event):
 		pause_menu.visible = !pause_menu.visible
 		pause_game.emit(pause_menu.visible)
 	
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()
+
+
+func _on_resume_button_pressed():
+	pause_menu.hide()
+	pause_game.emit(pause_menu.visible)
+
+
+func _on_menu_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/ChapterSelect.tscn")
