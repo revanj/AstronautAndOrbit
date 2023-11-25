@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://d4fnmf8weosll"]
+
+[ext_resource type="Theme" uid="uid://bqoweilw2b87q" path="res://Art/Resources/ui_theme.tres" id="1_yl6br"]
+[ext_resource type="Texture2D" uid="uid://e4i5dht11pos" path="res://Art/UI/Button_Restart.png" id="2_uifgw"]
+[ext_resource type="Script" path="res://Scripts/SoundButton.gd" id="3_8hqkm"]
+[ext_resource type="Texture2D" uid="uid://dt02muqghurgq" path="res://Art/UI/Button_Restart_Pressed.png" id="3_bosc5"]
+[ext_resource type="Texture2D" uid="uid://i808623te46a" path="res://Art/UI/Button_Play.png" id="3_pryws"]
+[ext_resource type="Texture2D" uid="uid://dp6fmykk41xpb" path="res://Art/UI/Button_Menu.png" id="4_g4fr5"]
+[ext_resource type="Texture2D" uid="uid://cff1oaweneqvb" path="res://Art/UI/Button_Restart_Hover.png" id="4_wnfkk"]
+[ext_resource type="AudioStream" uid="uid://cxids6oiipn7o" path="res://Sounds/Buttons/Scifi UI Button 2 .wav" id="6_8q7qb"]
+[ext_resource type="Texture2D" uid="uid://jeg5kt8ab5l" path="res://Art/UI/Button_Play_Pressed.png" id="8_i8ixi"]
+[ext_resource type="Texture2D" uid="uid://sy0mxup7xv51" path="res://Art/UI/Button_Play_Hover.png" id="9_uhjb2"]
+[ext_resource type="Texture2D" uid="uid://esa0pspaqkaf" path="res://Art/UI/Button_Menu_Pressed.png" id="11_e3sva"]
+[ext_resource type="Texture2D" uid="uid://b5ks73p3p6egu" path="res://Art/UI/Button_Menu_Hover.png" id="12_mwn7j"]
+
+[node name="PauseMenu" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.5
+offset_top = -187.5
+offset_right = 422.5
+offset_bottom = 187.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yl6br")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.5
+offset_top = -59.0
+offset_right = 361.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="Button3" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_uifgw")
+texture_pressed = ExtResource("3_bosc5")
+texture_hover = ExtResource("4_wnfkk")
+script = ExtResource("3_8hqkm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Button3"]
+stream = ExtResource("6_8q7qb")
+bus = &"FX"
+
+[node name="Button2" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("3_pryws")
+texture_pressed = ExtResource("8_i8ixi")
+texture_hover = ExtResource("9_uhjb2")
+script = ExtResource("3_8hqkm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Button2"]
+stream = ExtResource("6_8q7qb")
+bus = &"FX"
+
+[node name="Button" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("4_g4fr5")
+texture_pressed = ExtResource("11_e3sva")
+texture_hover = ExtResource("12_mwn7j")
+script = ExtResource("3_8hqkm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Button"]
+stream = ExtResource("6_8q7qb")
+bus = &"FX"
+
+[connection signal="button_down" from="HBoxContainer/Button3" to="HBoxContainer/Button3" method="_on_button_down"]
+[connection signal="button_down" from="HBoxContainer/Button2" to="HBoxContainer/Button2" method="_on_button_down"]
+[connection signal="button_down" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_button_down"]

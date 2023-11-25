@@ -55,4 +55,5 @@ position = Vector2(1, -651)
 shape = SubResource("WorldBoundaryShape2D_7db1e")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
+[connection signal="pause_game" from="UI" to="." method="_on_ui_pause_game"]
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]

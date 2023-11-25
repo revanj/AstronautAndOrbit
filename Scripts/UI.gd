@@ -6,6 +6,9 @@ var total_crystals = 0
 @onready var crystal_label:Label = $CrystalCollect/Label
 @onready var fuel_progress_bar = $FuelMeter/FuelProgress
 @onready var facade = $Facade
+@onready var pause_menu = $PauseMenu
+
+signal pause_game
 
 func _ready():
 	facade.color = Color.BLACK
@@ -46,4 +49,9 @@ func facade_darken_await():
 	facade.show()
 	tween.tween_property(facade, "color", Color.BLACK, 1)
 	await tween.finished
+	
+func _input(event): 
+	if event.is_action_pressed("pause"):
+		pause_menu.visible = !pause_menu.visible
+		pause_game.emit(pause_menu.visible)
 	

@@ -67,5 +67,7 @@ scale = Vector2(0.3189, 0.327036)
 position = Vector2(-287, 92)
 scale = Vector2(0.411383, 0.411383)
 
+[connection signal="pause_game" from="UI" to="." method="_on_ui_pause_game"]
+
 [editable path="Stars/Star"]
 [editable path="Stars/Star3"]

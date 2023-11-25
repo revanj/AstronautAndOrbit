@@ -10,6 +10,8 @@ class_name Level
 @onready var death_area = $DeathArea
 @onready var death_beams = get_tree().get_nodes_in_group("death_beam")
 
+var paused = false
+
 func _ready():
 	# GameManager.find_current_level()
 	
@@ -29,3 +31,18 @@ func _ready():
 	
 	for b in death_beams:
 		b.player_dead_by_star.connect(ui._on_player_dead_by_star)
+
+
+			
+
+
+func _on_ui_pause_game(visibility: bool):
+	var target_pause_state = PROCESS_MODE_DISABLED
+	if !visibility:
+		target_pause_state = PROCESS_MODE_INHERIT
+		
+	spaceship.process_mode = target_pause_state
+	for s in stars:
+		s.process_mode = target_pause_state
+	
+	

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqk1jl3sskgnv"]
+
+[ext_resource type="Theme" uid="uid://bqoweilw2b87q" path="res://Art/Resources/ui_theme.tres" id="1_7s70o"]
+[ext_resource type="Script" path="res://Scripts/SoundButton.gd" id="2_v01u1"]
+[ext_resource type="AudioStream" uid="uid://cxids6oiipn7o" path="res://Sounds/Buttons/Scifi UI Button 2 .wav" id="3_srg8l"]
+
+[node name="StartGameButton" type="Button"]
+theme = ExtResource("1_7s70o")
+text = "Start Game"
+script = ExtResource("2_v01u1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_srg8l")
+bus = &"FX"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
