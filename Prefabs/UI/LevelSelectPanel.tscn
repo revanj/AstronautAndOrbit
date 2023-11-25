@@ -25,7 +25,6 @@ size_flags_horizontal = 3
 theme = ExtResource("1_bswdd")
 script = ExtResource("2_0forn")
 placeholder_texture = ExtResource("3_5a7al")
-level_description = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2docaei0vhfr"]
+[gd_scene load_steps=10 format=3 uid="uid://d2docaei0vhfr"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_ukvjj"]
 [ext_resource type="PackedScene" uid="uid://blcdi8y5tplqc" path="res://Prefabs/UI/DialogueBox.tscn" id="2_fb0ex"]
 [ext_resource type="PackedScene" uid="uid://cpsqvdopnkhmy" path="res://Prefabs/CrystalCollect.tscn" id="3_d2oqe"]
-[ext_resource type="Texture2D" uid="uid://dun23vxn2v24p" path="res://Art/FuelBar.png" id="4_w1uil"]
-[ext_resource type="Texture2D" uid="uid://dy0ohkdf3i38c" path="res://Art/FuelBarFill.png" id="6_fbtm0"]
+[ext_resource type="Texture2D" uid="uid://dun23vxn2v24p" path="res://Art/UI/FuelBar.png" id="4_w1uil"]
+[ext_resource type="Theme" uid="uid://bqoweilw2b87q" path="res://Art/Resources/ui_theme.tres" id="6_7na6t"]
+[ext_resource type="Texture2D" uid="uid://dy0ohkdf3i38c" path="res://Art/UI/FuelBarFill.png" id="6_fbtm0"]
+[ext_resource type="Texture2D" uid="uid://e4i5dht11pos" path="res://Art/UI/Button_Restart.png" id="7_3iq7j"]
+[ext_resource type="Texture2D" uid="uid://i808623te46a" path="res://Art/UI/Button_Play.png" id="8_dybcy"]
+[ext_resource type="Texture2D" uid="uid://dp6fmykk41xpb" path="res://Art/UI/Button_Menu.png" id="9_unqs6"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_ukvjj")
@@ -39,3 +43,58 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="PauseMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.5
+offset_top = -187.5
+offset_right = 422.5
+offset_bottom = 187.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_7na6t")
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.5
+offset_top = -59.0
+offset_right = 361.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="Button3" type="TextureButton" parent="PauseMenu/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("7_3iq7j")
+
+[node name="Button2" type="TextureButton" parent="PauseMenu/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("8_dybcy")
+
+[node name="Button" type="TextureButton" parent="PauseMenu/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture_normal = ExtResource("9_unqs6")

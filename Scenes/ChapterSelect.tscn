@@ -111,14 +111,11 @@ level_description = "Through the Ergosphere"
 [node name="Panel10" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
 layout_mode = 2
 disabled = true
-level_description = ""
 
 [node name="Panel11" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
 layout_mode = 2
 disabled = true
-level_description = ""
 
 [node name="Panel12" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
 layout_mode = 2
 disabled = true
-level_description = ""
