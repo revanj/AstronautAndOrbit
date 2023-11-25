@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2docaei0vhfr"]
+[gd_scene load_steps=6 format=3 uid="uid://d2docaei0vhfr"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_ukvjj"]
-[ext_resource type="PackedScene" uid="uid://blcdi8y5tplqc" path="res://Prefabs/UI/DialogueBox.tscn" id="2_fb0ex"]
 [ext_resource type="PackedScene" uid="uid://cpsqvdopnkhmy" path="res://Prefabs/CrystalCollect.tscn" id="3_d2oqe"]
 [ext_resource type="Texture2D" uid="uid://dun23vxn2v24p" path="res://Art/UI/FuelBar.png" id="4_w1uil"]
 [ext_resource type="Texture2D" uid="uid://dy0ohkdf3i38c" path="res://Art/UI/FuelBarFill.png" id="6_fbtm0"]
@@ -10,9 +9,6 @@
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_ukvjj")
-
-[node name="DialogueBox" parent="." instance=ExtResource("2_fb0ex")]
-visible = false
 
 [node name="CrystalCollect" parent="." instance=ExtResource("3_d2oqe")]
 offset_top = -77.0

@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg5ubv3334ejy"]
+[gd_scene load_steps=4 format=3 uid="uid://cg5ubv3334ejy"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScene.gd" id="1_jqqe4"]
+[ext_resource type="FontFile" uid="uid://ja0l1tto1hai" path="res://Fonts/ubuntu-font-family-0.80/Ubuntu-R.ttf" id="2_7p4eh"]
 [ext_resource type="PackedScene" uid="uid://dqk1jl3sskgnv" path="res://Prefabs/SoundButton.tscn" id="2_mlboh"]
 
 [node name="TitleScene" type="Control"]
-texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,12 +15,13 @@ script = ExtResource("1_jqqe4")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 2
-offset_left = -76.0
+offset_left = -72.0
 offset_top = 106.0
 offset_right = 534.0
-offset_bottom = 348.0
+offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_7p4eh")
 theme_override_font_sizes/font_size = 86
 text = "Astronaut
 Orbit"
@@ -34,7 +35,8 @@ anchor_bottom = 1.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_7p4eh")
+theme_override_font_sizes/font_size = 35
 text = "&"
 horizontal_alignment = 1
 vertical_alignment = 1

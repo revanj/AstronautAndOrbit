@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmj62u51f6fbd"]
+[gd_scene load_steps=13 format=3 uid="uid://cmj62u51f6fbd"]
 
+[ext_resource type="FontFile" uid="uid://ja0l1tto1hai" path="res://Fonts/ubuntu-font-family-0.80/Ubuntu-R.ttf" id="1_a7mmr"]
 [ext_resource type="PackedScene" uid="uid://yqgqpxn0a40q" path="res://Prefabs/UI/LevelSelectPanel.tscn" id="1_f7xqw"]
 [ext_resource type="Texture2D" uid="uid://xohk6kieif14" path="res://Art/UI/LevelSnapshots/BlackHole.png" id="2_6c785"]
 [ext_resource type="Texture2D" uid="uid://d3rqv12m6gxxx" path="res://Art/UI/LevelSnapshots/OrbitalCorrection.png" id="2_ma88k"]
@@ -32,6 +33,7 @@ dragger_visibility = 2
 
 [node name="Label" type="Label" parent="VSplitContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_a7mmr")
 theme_override_font_sizes/font_size = 50
 text = "Chapter Select
 "
@@ -58,6 +60,7 @@ theme_override_constants/v_separation = 10
 columns = 4
 
 [node name="Panel" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestOrbitalCorrection.tscn"
@@ -65,6 +68,7 @@ level_thumbnail = ExtResource("2_ma88k")
 level_description = "Acceleration"
 
 [node name="Panel2" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestSimpleSlingshot.tscn"
@@ -72,6 +76,7 @@ level_thumbnail = ExtResource("3_1loyy")
 level_description = "Star Shift"
 
 [node name="Panel3" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestMultipleSlingshot.tscn"
@@ -79,6 +84,7 @@ level_thumbnail = ExtResource("4_vssva")
 level_description = "Triple Starshift"
 
 [node name="Panel4" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestThrusterStarShift.tscn"
@@ -86,6 +92,7 @@ level_thumbnail = ExtResource("5_27iqc")
 level_description = "Limited Fuel"
 
 [node name="Panel5" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestPulsars.tscn"
@@ -93,6 +100,7 @@ level_thumbnail = ExtResource("6_3wing")
 level_description = "Pulsars"
 
 [node name="Panel6" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestWormHole.tscn"
@@ -100,6 +108,7 @@ level_thumbnail = ExtResource("7_hced5")
 level_description = "Wormholes"
 
 [node name="Panel7" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestWormHoleRedirection.tscn"
@@ -107,6 +116,7 @@ level_thumbnail = ExtResource("8_kqwvn")
 level_description = "Redirection"
 
 [node name="Panel8" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestZigZag.tscn"
@@ -114,6 +124,7 @@ level_thumbnail = ExtResource("9_agigw")
 level_description = "Zigzag"
 
 [node name="Panel9" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 level_path = "res://TestLevels/TestBlackholeSlingshot.tscn"
@@ -121,16 +132,19 @@ level_thumbnail = ExtResource("2_6c785")
 level_description = "Ergosphere"
 
 [node name="Panel10" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 disabled = true
 
 [node name="Panel11" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 disabled = true
 
 [node name="Panel12" parent="VSplitContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("1_f7xqw")]
+texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 disabled = true

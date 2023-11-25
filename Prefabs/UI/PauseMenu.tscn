@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4fnmf8weosll"]
+[gd_scene load_steps=14 format=3 uid="uid://d4fnmf8weosll"]
 
 [ext_resource type="Theme" uid="uid://bqoweilw2b87q" path="res://Art/Resources/ui_theme.tres" id="1_yl6br"]
+[ext_resource type="FontFile" uid="uid://ja0l1tto1hai" path="res://Fonts/ubuntu-font-family-0.80/Ubuntu-R.ttf" id="2_tyil7"]
 [ext_resource type="Texture2D" uid="uid://e4i5dht11pos" path="res://Art/UI/Button_Restart.png" id="2_uifgw"]
 [ext_resource type="Script" path="res://Scripts/SoundButton.gd" id="3_8hqkm"]
 [ext_resource type="Texture2D" uid="uid://dt02muqghurgq" path="res://Art/UI/Button_Restart_Pressed.png" id="3_bosc5"]
@@ -31,8 +32,10 @@ theme = ExtResource("1_yl6br")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 110.0
+offset_top = 24.5
+offset_bottom = 134.5
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_tyil7")
 theme_override_font_sizes/font_size = 70
 text = "Paused"
 horizontal_alignment = 1

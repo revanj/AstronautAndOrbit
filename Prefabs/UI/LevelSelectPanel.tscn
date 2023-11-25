@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://yqgqpxn0a40q"]
+[gd_scene load_steps=13 format=3 uid="uid://yqgqpxn0a40q"]
 
 [ext_resource type="Theme" uid="uid://bqoweilw2b87q" path="res://Art/Resources/ui_theme.tres" id="1_bswdd"]
 [ext_resource type="Script" path="res://Scripts/LevelSelectPanel.gd" id="2_0forn"]
 [ext_resource type="Texture2D" uid="uid://ep8bt4mrb05c" path="res://Art/UI/LevelSnapshots/TripleStarShift.png" id="3_1gqg0"]
 [ext_resource type="Texture2D" uid="uid://cat8t136iswfs" path="res://Art/Resources/pure_black.tres" id="3_5a7al"]
+[ext_resource type="FontFile" uid="uid://ja0l1tto1hai" path="res://Fonts/ubuntu-font-family-0.80/Ubuntu-R.ttf" id="5_e6b2i"]
 [ext_resource type="Script" path="res://Scripts/SoundButton.gd" id="5_eyx8i"]
 [ext_resource type="AudioStream" uid="uid://cxids6oiipn7o" path="res://Sounds/Buttons/Scifi UI Button 2 .wav" id="5_nk5bd"]
 
@@ -22,6 +23,7 @@ bg_color = Color(0.0627451, 0.0627451, 0.0627451, 0.792157)
 
 [node name="LevelSelectPanel" type="Panel"]
 modulate = Color(1.5, 1.5, 1.5, 1)
+texture_filter = 6
 offset_right = 399.0
 offset_bottom = 277.0
 size_flags_horizontal = 3
@@ -52,10 +54,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -53.0
-offset_bottom = -11.0
+offset_top = -46.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_e6b2i")
 theme_override_font_sizes/font_size = 23
 text = "Something"
 horizontal_alignment = 1
