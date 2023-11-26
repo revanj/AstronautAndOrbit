@@ -4,10 +4,12 @@ class_name EnergyCrystal
 signal crystal_collected
 
 @onready var sprite = $EnergyStarSprite
+@onready var sound_player = $AudioStreamPlayer
 
 func _on_body_entered(body:Node2D):
 	if body.is_in_group("spaceship"):
 		emit_signal("crystal_collected")
+		sound_player.play()
 		var tween = create_tween()
 		tween.set_parallel(true)
 		tween.tween_property(sprite, "modulate", Color.TRANSPARENT, 1)

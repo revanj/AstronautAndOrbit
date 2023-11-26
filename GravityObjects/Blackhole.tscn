@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://u0a0gbin38w1"]
+[gd_scene load_steps=7 format=3 uid="uid://u0a0gbin38w1"]
 
 [ext_resource type="Script" path="res://GravityObjects/Blackhole.gd" id="1_k3sx1"]
 [ext_resource type="Texture2D" uid="uid://dki37mdp4ivu7" path="res://Art/Stars/StarBlackholered.svg" id="2_gfrdb"]
 [ext_resource type="Script" path="res://TestLevels/Ergosphere.gd" id="3_p8q08"]
 [ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Spaceship/Arrow2.png" id="4_f0vb6"]
+[ext_resource type="AudioStream" uid="uid://bupbceloandra" path="res://Sounds/Blackhole/Industrial Machine Hum Loop.wav" id="5_svq02"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0nn2"]
 radius = 151.199
@@ -23,5 +24,11 @@ texture = ExtResource("2_gfrdb")
 [node name="ErgosphereVisual" type="Node2D" parent="."]
 script = ExtResource("3_p8q08")
 arrow_texture = ExtResource("4_f0vb6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_svq02")
+volume_db = 3.0
+pitch_scale = 0.2
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

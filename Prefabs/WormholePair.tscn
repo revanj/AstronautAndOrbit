@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://db2kox2r462sm"]
+[gd_scene load_steps=6 format=3 uid="uid://db2kox2r462sm"]
 
 [ext_resource type="PackedScene" uid="uid://cdl2c78ntdfc8" path="res://Planets/Wormhole/Wormhole.tscn" id="1_4rlku"]
 [ext_resource type="Script" path="res://Scripts/WormholePair.gd" id="1_bjyp3"]
+[ext_resource type="AudioStream" uid="uid://chdcmr7l53rmh" path="res://Sounds/Wormholes/Stormwave Audio - Sci-Fi Warp Sound 1/Sci-Fi Warp Sound 1.wav" id="3_wp5qw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ak03"]
 radius = 36.0555
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o53e8"]
+streams_count = 1
+random_pitch = 1.02
+stream_0/stream = ExtResource("3_wp5qw")
+stream_0/weight = 1.0
 
 [node name="WormholePair" type="Node2D"]
 script = ExtResource("1_bjyp3")
@@ -24,6 +31,10 @@ position = Vector2(241, 6)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wormhole2/Area2D2"]
 shape = SubResource("CircleShape2D_7ak03")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_o53e8")
+volume_db = -3.0
 
 [connection signal="body_entered" from="Wormhole/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Wormhole/Area2D" to="." method="_on_area_2d_body_exited"]

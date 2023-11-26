@@ -23,19 +23,18 @@ func _on_crystal_collected():
 	crystals_collected += 1
 	update_crystal_label()
 	if crystals_collected == total_crystals:
-		facade_darken_await()
-		print("calling load_next_level")
+		await facade_darken_await()
 		GameManager.load_next_level()
 	
 func update_crystal_label():
 	crystal_label.text = str(crystals_collected) + "/" + str(total_crystals)
  
 func _on_player_dead_by_star():
-	facade_darken_await()
+	await facade_darken_await()
 	get_tree().reload_current_scene()
 
 func _on_player_dead_by_out_of_bounds():
-	facade_darken_await()
+	await facade_darken_await()
 	get_tree().reload_current_scene()
 
 func facade_clear_await():

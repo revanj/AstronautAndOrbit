@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb832x8inl183"]
+[gd_scene load_steps=11 format=3 uid="uid://bb832x8inl183"]
 
 [ext_resource type="Script" path="res://Scripts/Spaceship.gd" id="1_i0tod"]
 [ext_resource type="Texture2D" uid="uid://bqutp1bnygknl" path="res://Art/Spaceship/ship.png" id="2_v7d53"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ch2y84spiqeix" path="res://Art/Spaceship/FlameBlue.png" id="6_msu38"]
 [ext_resource type="Script" path="res://Spaceship/NavDisplay.gd" id="7_lsg2s"]
 [ext_resource type="Texture2D" uid="uid://dmhvljlcexvx4" path="res://Art/Spaceship/Arrow2.png" id="8_gha4l"]
+[ext_resource type="PackedScene" uid="uid://kelt8t2ot5sm" path="res://Prefabs/SpaceshipAudio.tscn" id="9_mfyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y11g"]
 size = Vector2(59.6887, 84.0994)
@@ -51,3 +52,5 @@ top_level = true
 z_index = -1
 script = ExtResource("7_lsg2s")
 arrow_texture = ExtResource("8_gha4l")
+
+[node name="SpaceshipAudio" parent="." instance=ExtResource("9_mfyoq")]

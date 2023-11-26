@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://s0ago0barwn0"]
+[gd_scene load_steps=5 format=3 uid="uid://s0ago0barwn0"]
 
 [ext_resource type="Script" path="res://TestLevels/Rotate.gd" id="1_g3eu1"]
 [ext_resource type="Texture2D" uid="uid://c5624ynux23s" path="res://Art/Stars/Beam.svg" id="2_vmvno"]
+[ext_resource type="AudioStream" uid="uid://bdqn2qo55sfir" path="res://Sounds/Pulsars/SciFiPulsar BMT02_30.wav" id="3_1s68a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqr2j"]
 size = Vector2(464, 20)
@@ -27,5 +28,9 @@ position = Vector2(279, 0)
 rotation = -3.14159
 scale = Vector2(2.397, 2.397)
 texture = ExtResource("2_vmvno")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1s68a")
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

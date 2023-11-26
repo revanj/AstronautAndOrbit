@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://kelt8t2ot5sm"]
+
+[ext_resource type="Script" path="res://Scripts/SpaceshipAudio.gd" id="1_cq0x7"]
+[ext_resource type="AudioStream" uid="uid://bvor7laqdg7ko" path="res://Sounds/Thrusters/thruster_loop.wav" id="3_knoje"]
+[ext_resource type="AudioStream" uid="uid://cnr76o084npyk" path="res://Sounds/Thrusters/thruster_stop.wav" id="4_umubb"]
+
+[node name="SpaceshipAudio" type="Node"]
+script = ExtResource("1_cq0x7")
+metadata/_edit_vertical_guides_ = []
+
+[node name="ThrusterLoopPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_knoje")
+volume_db = -5.0
+
+[node name="ThrusterEndPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_umubb")
+volume_db = -5.0

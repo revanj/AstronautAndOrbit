@@ -45,6 +45,9 @@ texture = ExtResource("4_rj1ek")
 scale = Vector2(0.72, 1)
 rotation_rate = 58.0
 
+[node name="AudioStreamPlayer" parent="Stars/Star3/DeathBeams" index="4"]
+autoplay = false
+
 [node name="Star2" parent="Stars" index="2" instance=ExtResource("2_la6aq")]
 position = Vector2(0, 221)
 texture = ExtResource("4_rj1ek")
@@ -54,6 +57,9 @@ effect_radius = 400.0
 rotation = 1.03499
 scale = Vector2(0.717269, 1)
 rotation_rate = -58.0
+
+[node name="AudioStreamPlayer" parent="Stars/Star2/DeathBeams" index="4"]
+autoplay = false
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("4_mtmmp")]
 position = Vector2(177, -175)
@@ -82,3 +88,5 @@ position = Vector2(1, -825)
 
 [editable path="Stars/Star"]
 [editable path="Stars/Star3"]
+[editable path="Stars/Star3/DeathBeams"]
+[editable path="Stars/Star2/DeathBeams"]

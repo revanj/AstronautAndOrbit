@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://co8brsgf1hgks"]
+[gd_scene load_steps=6 format=3 uid="uid://co8brsgf1hgks"]
 
 [ext_resource type="Script" path="res://Scripts/EnergyCrystal.gd" id="1_8l351"]
 [ext_resource type="Texture2D" uid="uid://dq7wwpq7xgpaq" path="res://Art/Levels/EnergyStar2.png" id="2_6kxlj"]
-[ext_resource type="Texture2D" uid="uid://c67pm3xjdfq50" path="res://Art/EnergyStarGlow.png" id="2_42wld"]
+[ext_resource type="Texture2D" uid="uid://c67pm3xjdfq50" path="res://Art/Levels/EnergyStarGlow.png" id="2_42wld"]
+[ext_resource type="AudioStream" uid="uid://c1q4tnqnl45av" path="res://Sounds/Crystals/Scifi Item Collect 5.wav" id="4_dngne"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdw1y"]
 radius = 132.921
@@ -12,15 +13,21 @@ position = Vector2(-64, -182)
 scale = Vector2(0.159592, 0.159592)
 script = ExtResource("1_8l351")
 
-[node name="EnergyStarSprite2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.658824)
-texture = ExtResource("2_42wld")
-
 [node name="EnergyStarSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_6kxlj")
+
+[node name="EnergyStarSprite2" type="Sprite2D" parent="EnergyStarSprite"]
+modulate = Color(1, 1, 1, 0.658824)
+show_behind_parent = true
+scale = Vector2(1, 1)
+texture = ExtResource("2_42wld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_tdw1y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dngne")
+volume_db = -3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
