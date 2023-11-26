@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhtoy2g18wlte"
+path="res://.godot/imported/1. Luke PN - Ambient Universe Snowfall_WAV.wav-0d1eb456f44ef78bded9b8223d0ad4ce.sample"
+
+[deps]
+
+source_file="res://Sounds/BGM/Luke PN - Ambient Universe Snowfall/1. Luke PN - Ambient Universe Snowfall_WAV.wav"
+dest_files=["res://.godot/imported/1. Luke PN - Ambient Universe Snowfall_WAV.wav-0d1eb456f44ef78bded9b8223d0ad4ce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

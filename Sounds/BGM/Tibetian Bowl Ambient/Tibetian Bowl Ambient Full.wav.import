@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lxjp8ie8fuai"
+path="res://.godot/imported/Tibetian Bowl Ambient Full.wav-d90aca9bf236bec0d4cbebc37627fe72.sample"
+
+[deps]
+
+source_file="res://Sounds/BGM/Tibetian Bowl Ambient/Tibetian Bowl Ambient Full.wav"
+dest_files=["res://.godot/imported/Tibetian Bowl Ambient Full.wav-d90aca9bf236bec0d4cbebc37627fe72.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

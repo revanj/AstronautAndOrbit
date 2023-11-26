@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vmqlmr6y16pm"
+path="res://.godot/imported/2. Luke PN - Ambient Universe Snowfall_No_Vocals_MP3.mp3-015ea1be5f8d8eab161cacb8e6819a57.mp3str"
+
+[deps]
+
+source_file="res://Sounds/BGM/Luke PN - Ambient Universe Snowfall/2. Luke PN - Ambient Universe Snowfall_No_Vocals_MP3.mp3"
+dest_files=["res://.godot/imported/2. Luke PN - Ambient Universe Snowfall_No_Vocals_MP3.mp3-015ea1be5f8d8eab161cacb8e6819a57.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

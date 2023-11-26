@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0gikh8p0pias"
+path="res://.godot/imported/Future Deep Ambient.mp3-1fa5d54890cc62804e093747ec727fc6.mp3str"
+
+[deps]
+
+source_file="res://Sounds/BGM/Future Deep Ambient.mp3"
+dest_files=["res://.godot/imported/Future Deep Ambient.mp3-1fa5d54890cc62804e093747ec727fc6.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2un6mecspg4b"
+path="res://.godot/imported/1. Luke PN - The Universe Galaxy Atmosphere_MP3.mp3-eb0ce00003f240d1cafc1936827592b1.mp3str"
+
+[deps]
+
+source_file="res://Sounds/BGM/Luke PN - The Universe Galaxy Atmosphere/1. Luke PN - The Universe Galaxy Atmosphere_MP3.mp3"
+dest_files=["res://.godot/imported/1. Luke PN - The Universe Galaxy Atmosphere_MP3.mp3-eb0ce00003f240d1cafc1936827592b1.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

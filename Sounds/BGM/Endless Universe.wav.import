@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7ntum2mbw45w"
+path="res://.godot/imported/Endless Universe.wav-908fb8dccaf7aa4fbc4f81c17cc3cef8.sample"
+
+[deps]
+
+source_file="res://Sounds/BGM/Endless Universe.wav"
+dest_files=["res://.godot/imported/Endless Universe.wav-908fb8dccaf7aa4fbc4f81c17cc3cef8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
