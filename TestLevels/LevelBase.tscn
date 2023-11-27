@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://w6gs4ljwad72"]
+[gd_scene load_steps=10 format=3 uid="uid://w6gs4ljwad72"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_6lo08"]
 [ext_resource type="PackedScene" uid="uid://d2docaei0vhfr" path="res://Prefabs/UI/UI.tscn" id="3_btes0"]
 [ext_resource type="Script" path="res://Scripts/DeathArea.gd" id="4_uwhqr"]
 [ext_resource type="PackedScene" uid="uid://bb832x8inl183" path="res://Spaceship/Spaceship.tscn" id="5_jrsr5"]
+[ext_resource type="AudioStream" uid="uid://cgt7inawrgayd" path="res://Sounds/BGM/0-ambient-universe.mp3" id="5_usj72"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5tcth"]
 
@@ -54,6 +55,11 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 position = Vector2(1, -651)
 shape = SubResource("WorldBoundaryShape2D_7db1e")
 debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_usj72")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pause_game" from="UI" to="." method="_on_ui_pause_game"]
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]

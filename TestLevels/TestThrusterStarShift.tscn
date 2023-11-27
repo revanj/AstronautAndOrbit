@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b461kvwtstg3r"]
+[gd_scene load_steps=8 format=3 uid="uid://b461kvwtstg3r"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_vfgw3"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_7bsnp"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="3_chk8m"]
 [ext_resource type="Texture2D" uid="uid://bekwdyi03o4ny" path="res://Art/Stars/StarWhitegiant.svg" id="3_ix4v4"]
 [ext_resource type="Texture2D" uid="uid://fgmwbw0shedp" path="res://Art/Stars/StarYellow.svg" id="4_ga58w"]
+[ext_resource type="AudioStream" uid="uid://de08whal0wk37" path="res://Sounds/BGM/Beautiful Ambient Guitars.mp3" id="6_0xfk7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uajv"]
+radius = 57.0351
 
 [node name="LevelBase" instance=ExtResource("1_vfgw3")]
 metadata/_edit_vertical_guides_ = []
@@ -20,10 +24,19 @@ position = Vector2(-441, 161)
 texture = ExtResource("3_ix4v4")
 effect_radius = 571.605
 
+[node name="CollisionShape2D" parent="Stars/Star" index="0"]
+shape = SubResource("CircleShape2D_6uajv")
+
+[node name="Sprite2D" parent="Stars/Star" index="1"]
+texture = ExtResource("3_ix4v4")
+
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("2_7bsnp")]
 position = Vector2(154, -131)
 texture = ExtResource("4_ga58w")
 effect_radius = 300.0
+
+[node name="Sprite2D" parent="Stars/Star2" index="1"]
+texture = ExtResource("4_ga58w")
 
 [node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("3_chk8m")]
 position = Vector2(129, -294)
@@ -43,3 +56,9 @@ position = Vector2(596, 0)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
 position = Vector2(1, -497)
+
+[node name="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("6_0xfk7")
+
+[editable path="Stars/Star"]
+[editable path="Stars/Star2"]

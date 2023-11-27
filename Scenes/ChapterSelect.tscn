@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmj62u51f6fbd"]
+[gd_scene load_steps=14 format=3 uid="uid://cmj62u51f6fbd"]
 
 [ext_resource type="FontFile" uid="uid://ja0l1tto1hai" path="res://Fonts/ubuntu-font-family-0.80/Ubuntu-R.ttf" id="1_a7mmr"]
 [ext_resource type="PackedScene" uid="uid://yqgqpxn0a40q" path="res://Prefabs/UI/LevelSelectPanel.tscn" id="1_f7xqw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ehydynklgnw" path="res://Art/UI/LevelSnapshots/TestWormhole.png" id="7_hced5"]
 [ext_resource type="Texture2D" uid="uid://wmstou1xqa4k" path="res://Art/UI/LevelSnapshots/WormholeRedirect.png" id="8_kqwvn"]
 [ext_resource type="Texture2D" uid="uid://d2x5wcvn7a4h5" path="res://Art/UI/LevelSnapshots/Zigzag.png" id="9_agigw"]
+[ext_resource type="AudioStream" uid="uid://vmqlmr6y16pm" path="res://Sounds/BGM/Luke PN - Ambient Universe Snowfall/2. Luke PN - Ambient Universe Snowfall_No_Vocals_MP3.mp3" id="12_0marq"]
 
 [sub_resource type="Theme" id="Theme_ie2we"]
 
@@ -148,3 +149,8 @@ texture_filter = 0
 custom_minimum_size = Vector2(0, 205.3)
 layout_mode = 2
 disabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_0marq")
+volume_db = -5.0
+autoplay = true

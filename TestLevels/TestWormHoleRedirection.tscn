@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://36drdgfot32y"]
+[gd_scene load_steps=11 format=3 uid="uid://36drdgfot32y"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_xddcu"]
 [ext_resource type="Shader" path="res://Planets/Asteroids/Asteroids.gdshader" id="2_tvw6j"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgtd6f5q8jxrl" path="res://Art/Stars/StarNeutron.svg" id="5_gstwl"]
 [ext_resource type="PackedScene" uid="uid://db2kox2r462sm" path="res://Prefabs/WormholePair.tscn" id="6_hmcqc"]
 [ext_resource type="PackedScene" uid="uid://s0ago0barwn0" path="res://GravityObjects/DeathBeams.tscn" id="6_whfnq"]
+[ext_resource type="AudioStream" uid="uid://0gikh8p0pias" path="res://Sounds/BGM/Future Deep Ambient.mp3" id="9_rswo7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
 shader = ExtResource("2_tvw6j")
@@ -100,6 +101,9 @@ position = Vector2(-550, -230)
 
 [node name="Wormhole2" parent="WormholePair" index="1"]
 position = Vector2(550, 230)
+
+[node name="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource("9_rswo7")
 
 [editable path="Stars/Star"]
 [editable path="Stars/CenturalNeutronStar"]

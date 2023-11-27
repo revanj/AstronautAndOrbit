@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn7qedrwpqxqh"]
+[gd_scene load_steps=8 format=3 uid="uid://cn7qedrwpqxqh"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_nwhyb"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_la6aq"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="4_mtmmp"]
 [ext_resource type="Texture2D" uid="uid://cgtd6f5q8jxrl" path="res://Art/Stars/StarNeutron.svg" id="4_rj1ek"]
+[ext_resource type="AudioStream" uid="uid://dpreq4thkrlho" path="res://Sounds/BGM/Endless Universe (No Vocals).wav" id="5_oxjam"]
 [ext_resource type="PackedScene" uid="uid://s0ago0barwn0" path="res://GravityObjects/DeathBeams.tscn" id="5_rxtsv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
@@ -85,6 +86,9 @@ position = Vector2(-1109, -6)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
 position = Vector2(1, -825)
+
+[node name="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("5_oxjam")
 
 [editable path="Stars/Star"]
 [editable path="Stars/Star3"]

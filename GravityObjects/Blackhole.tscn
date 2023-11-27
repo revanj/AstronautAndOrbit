@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bupbceloandra" path="res://Sounds/Blackhole/Industrial Machine Hum Loop.wav" id="5_svq02"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0nn2"]
-radius = 151.199
+radius = 115.156
 
 [node name="Blackhole" type="Area2D" groups=["gravity_objects", "stars"]]
 script = ExtResource("1_k3sx1")

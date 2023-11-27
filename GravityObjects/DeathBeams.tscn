@@ -5,17 +5,17 @@
 [ext_resource type="AudioStream" uid="uid://bdqn2qo55sfir" path="res://Sounds/Pulsars/SciFiPulsar BMT02_30.wav" id="3_1s68a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqr2j"]
-size = Vector2(464, 20)
+size = Vector2(366, 20)
 
 [node name="DeathBeams" type="Area2D" groups=["death_beam"]]
 script = ExtResource("1_g3eu1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-285, 0)
+position = Vector2(-236, 0)
 shape = SubResource("RectangleShape2D_kqr2j")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(285, 0)
+position = Vector2(236, 0)
 shape = SubResource("RectangleShape2D_kqr2j")
 
 [node name="Beam" type="Sprite2D" parent="."]

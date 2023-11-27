@@ -19,7 +19,6 @@ texture = ExtResource("2_6kxlj")
 [node name="EnergyStarSprite2" type="Sprite2D" parent="EnergyStarSprite"]
 modulate = Color(1, 1, 1, 0.658824)
 show_behind_parent = true
-scale = Vector2(1, 1)
 texture = ExtResource("2_42wld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0a1c3yaxmk7q"]
+[gd_scene load_steps=8 format=3 uid="uid://c0a1c3yaxmk7q"]
 
 [ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_73wph"]
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_t10vf"]
 [ext_resource type="Texture2D" uid="uid://rftq5wkvdy6s" path="res://Art/Stars/StarRedgiant.svg" id="3_qrbn8"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="3_ur5qs"]
 [ext_resource type="Texture2D" uid="uid://bqn66tyhuu470" path="res://Art/Stars/StarOrange.svg" id="4_qpnyj"]
+[ext_resource type="AudioStream" uid="uid://dpreq4thkrlho" path="res://Sounds/BGM/Endless Universe (No Vocals).wav" id="6_6woh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tffly"]
+radius = 52.7731
 
 [node name="LevelBase" instance=ExtResource("1_73wph")]
 
@@ -17,6 +21,12 @@ starting_velocity = 539.805
 position = Vector2(409, -146)
 texture = ExtResource("3_qrbn8")
 effect_radius = 686.42
+
+[node name="CollisionShape2D" parent="Stars/Star" index="0"]
+shape = SubResource("CircleShape2D_tffly")
+
+[node name="Sprite2D" parent="Stars/Star" index="1"]
+texture = ExtResource("3_qrbn8")
 
 [node name="Star3" parent="Stars" index="1" instance=ExtResource("2_t10vf")]
 position = Vector2(-586, 267)
@@ -47,3 +57,8 @@ position = Vector2(1375, -9)
 
 [node name="CollisionShape2D4" parent="DeathArea" index="3"]
 position = Vector2(-13, -1025)
+
+[node name="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("6_6woh7")
+
+[editable path="Stars/Star"]

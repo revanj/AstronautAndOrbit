@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg5ubv3334ejy"]
+[gd_scene load_steps=5 format=3 uid="uid://cg5ubv3334ejy"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScene.gd" id="1_jqqe4"]
 [ext_resource type="FontFile" uid="uid://ja0l1tto1hai" path="res://Fonts/ubuntu-font-family-0.80/Ubuntu-R.ttf" id="2_7p4eh"]
 [ext_resource type="PackedScene" uid="uid://dqk1jl3sskgnv" path="res://Prefabs/SoundButton.tscn" id="2_mlboh"]
+[ext_resource type="AudioStream" uid="uid://vmqlmr6y16pm" path="res://Sounds/BGM/Luke PN - Ambient Universe Snowfall/2. Luke PN - Ambient Universe Snowfall_No_Vocals_MP3.mp3" id="4_cximy"]
 
 [node name="TitleScene" type="Control"]
 layout_mode = 3
@@ -59,6 +60,11 @@ layout_mode = 2
 [node name="SelectChapterButton" parent="VBoxContainer" instance=ExtResource("2_mlboh")]
 layout_mode = 2
 text = "Select Chapter"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cximy")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SelectChapterButton" to="." method="_on_select_chapter_button_pressed"]
