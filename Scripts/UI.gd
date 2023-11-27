@@ -7,6 +7,7 @@ var total_crystals = 0
 @onready var fuel_progress_bar = $FuelMeter/FuelProgress
 @onready var facade = $Facade
 @onready var pause_menu = $PauseMenu
+@onready var death_player = $DeathSoundPlayer
 
 signal pause_game
 
@@ -30,10 +31,13 @@ func update_crystal_label():
 	crystal_label.text = str(crystals_collected) + "/" + str(total_crystals)
  
 func _on_player_dead_by_star():
+	death_player.play()
 	await facade_darken_await()
 	get_tree().reload_current_scene()
+	
 
 func _on_player_dead_by_out_of_bounds():
+	death_player.play()
 	await facade_darken_await()
 	get_tree().reload_current_scene()
 

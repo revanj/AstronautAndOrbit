@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2docaei0vhfr"]
+[gd_scene load_steps=7 format=3 uid="uid://d2docaei0vhfr"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_ukvjj"]
 [ext_resource type="PackedScene" uid="uid://cpsqvdopnkhmy" path="res://Prefabs/CrystalCollect.tscn" id="3_d2oqe"]
 [ext_resource type="Texture2D" uid="uid://dun23vxn2v24p" path="res://Art/UI/FuelBar.png" id="4_w1uil"]
+[ext_resource type="AudioStream" uid="uid://bv6qohgop38rt" path="res://Sounds/SpaceshipCrash/plastic door impact smash slam 3.wav" id="6_crmic"]
 [ext_resource type="Texture2D" uid="uid://dy0ohkdf3i38c" path="res://Art/UI/FuelBarFill.png" id="6_fbtm0"]
 [ext_resource type="PackedScene" uid="uid://d4fnmf8weosll" path="res://Prefabs/UI/PauseMenu.tscn" id="6_gf274"]
 
@@ -43,6 +44,11 @@ color = Color(0, 0, 0, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_gf274")]
 visible = false
+
+[node name="DeathSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_crmic")
+volume_db = -8.0
+bus = &"FX"
 
 [connection signal="pressed" from="PauseMenu/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PauseMenu/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

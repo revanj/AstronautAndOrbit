@@ -26,11 +26,14 @@ func _ready():
 	
 	for s in stars:
 		s.player_dead_by_star.connect(ui._on_player_dead_by_star)
+		s.player_dead_by_star.connect(self._on_player_death)
 	
 	death_area.player_dead_by_out_of_bounds.connect(ui._on_player_dead_by_out_of_bounds)
+	death_area.player_dead_by_out_of_bounds.connect(self._on_player_death)
 	
 	for b in death_beams:
 		b.player_dead_by_star.connect(ui._on_player_dead_by_star)
+		b.player_dead_by_star.connect(self._on_player_death)
 
 
 			
@@ -45,4 +48,5 @@ func _on_ui_pause_game(visibility: bool):
 	for s in stars:
 		s.process_mode = target_pause_state
 	
-	
+func _on_player_death():
+	spaceship.queue_free()
