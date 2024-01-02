@@ -19,7 +19,7 @@ extends Area2D
 
 signal player_dead_by_star
 
-func get_gravity_vector(pos:Vector2) -> Vector2:
+func get_gravity_vector(pos:Vector2, time: float) -> Vector2:
 	var r = (global_position - pos).length()
 	if r > effect_radius:
 		return Vector2.ZERO

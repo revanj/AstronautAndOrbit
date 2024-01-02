@@ -23,6 +23,8 @@ class TrajectoryData:
 
 var trajectory_data: TrajectoryData
 
+var frames_elapsed: int = 0
+
 func _ready():
 	set_as_top_level(true)
 	global_position = Vector2.ZERO
@@ -31,15 +33,16 @@ func _ready():
 	stars = get_tree().get_nodes_in_group("gravity_objects")
 	half_texture_width = arrow_texture.get_width() / 2.0
 	
-func get_field_at(pos: Vector2) -> Vector2:
+func get_field_at(pos: Vector2, time: float) -> Vector2:
 	var result: Vector2 = Vector2.ZERO
 	for star: GravityObject in stars:
-		result += star.get_gravity_vector(pos)
+		result += star.get_gravity_vector(pos, time)
 	return result
 	
 func _physics_process(_delta):
 	if !Engine.is_editor_hint():
-		spaceship.field_dir = get_field_at(spaceship.global_position)
+		spaceship.field_dir = get_field_at(spaceship.global_position, float(1)/30 * frames_elapsed)
+		frames_elapsed += 1
 	else: # this runs in editor
 		var spaceship_editor: Spaceship = get_parent() as Spaceship
 		var pos_changed: bool = spaceship_editor.global_position != previous_pos
@@ -60,7 +63,7 @@ func get_trajectory(start_pos: Vector2, start_vel: Vector2, nb_points: int, dt: 
 	for i in range(nb_points + 1):
 		var s = current_vel * dt
 		current_point = current_point + s
-		current_vel = current_vel + get_field_at(current_point) * dt
+		current_vel = current_vel + get_field_at(current_point, dt * (i + frames_elapsed)) * dt
 		points_arc.push_back(current_point)
 		if (i + 1) % ds == 0:
 			arrow_pos.push_back(current_point)
