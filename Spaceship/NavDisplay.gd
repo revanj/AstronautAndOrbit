@@ -29,11 +29,11 @@ func _ready():
 	global_rotation = 0
 	scale = Vector2.ONE
 	stars = get_tree().get_nodes_in_group("gravity_objects")
-	half_texture_width = arrow_texture.get_width()/2.0
+	half_texture_width = arrow_texture.get_width() / 2.0
 	
 func get_field_at(pos: Vector2) -> Vector2:
 	var result: Vector2 = Vector2.ZERO
-	for star in stars:
+	for star: GravityObject in stars:
 		result += star.get_gravity_vector(pos)
 	return result
 	
@@ -48,17 +48,15 @@ func _physics_process(_delta):
 			queue_redraw()
 		previous_pos = spaceship_editor.global_position
 		previous_speed = spaceship_editor.starting_velocity
-		
-		
-func get_trajectory(start_pos, start_vel, nb_points, dt, ds):
+
+func get_trajectory(start_pos: Vector2, start_vel: Vector2, nb_points: int, dt: float, ds: int):
 	var points_arc: PackedVector2Array       = PackedVector2Array()
 	var arrow_pos: PackedVector2Array        = PackedVector2Array()
 	var arrow_directions: PackedVector2Array = PackedVector2Array()
 	
 	points_arc.push_back(start_pos)
-	var current_point 	  = start_pos
-	var current_vel       = start_vel
-	# var s_accumulate: int = 0
+	var current_point: Vector2 = start_pos
+	var current_vel: Vector2   = start_vel
 	for i in range(nb_points + 1):
 		var s = current_vel * dt
 		current_point = current_point + s
@@ -85,7 +83,7 @@ func _draw() -> void:
 		var calculating_velocity = -spaceship.transform.y * spaceship.starting_velocity
 		trajectory_data = get_trajectory(
 			spaceship.global_position, 
-			calculating_velocity, 200, 1.0/30.0, 20)
+			calculating_velocity, 200, 1.0 / 30.0, 20)
 
 	if trajectory_data == null:
 		return
@@ -103,7 +101,7 @@ func _draw() -> void:
 			1,
 			true
 		)
-	
+
 	for index_point in range(len(arrow_pos)):
 		draw_set_transform(
 			arrow_pos[index_point], 

@@ -8,9 +8,9 @@ class_name Spaceship
 #	display_velocity -> grabbed by the star field to integrate and draw route
 #	heading -> used by the display to display spaceship heading 
 
-var forward_speed = 0.5
-var brake_factor = 0.98
-var turn_factor = 0.05
+@export var forward_speed: float = 0.5
+var brake_factor: float  = 0.98
+var turn_factor: float   = 0.05
 
 enum InputState {
 	Normal,
@@ -21,30 +21,30 @@ enum InputState {
 signal fuel_changed
 signal big_jump_fuel_changed
 
-var input_state = InputState.Normal
+var input_state: int = InputState.Normal
 
-@onready var visual = $SpaceshipVisual
-@onready var big_jump_display = $BigJumpDisplay
+@onready var visual: Node2D = $SpaceshipVisual
+@onready var big_jump_display: Node2D = $BigJumpDisplay
 @onready var spaceship: Spaceship = self
 
-var velocity_cached = Vector2.INF
+var velocity_cached: Vector2 = Vector2.INF
 var field_dir: Vector2
 var heading_direction: Vector2
 var display_velocity: Vector2
 
 var cache_spaceship_velocity: Vector2
 var drag_start_position: Vector2
-var max_jump_speed = 500
+var max_jump_speed: int = 500
 
-var heading_delta = 0;
+var heading_delta: int = 0;
 
-var fuel_decrease_amount = 0.3
-var big_jump_fuel_amount = 30
+var fuel_decrease_amount: float = 0.3
+var big_jump_fuel_amount: int   = 30
 
-@export var starting_big_jump_fuel = 90
+@export var starting_big_jump_fuel: int = 90
 @export var starting_fuel:float = 100
 	
-@onready var star_field = $NavDisplay
+@onready var star_field: NavDisplay = $NavDisplay
 
 @export var starting_velocity:float:
 	set(value):
@@ -73,12 +73,6 @@ func _physics_process(delta):
 	match input_state:
 		InputState.Normal:
 			spaceship.hide_big_jump_display()
-#			if Input.is_action_just_pressed("big_jump"):
-#				if (big_jump_fuel >= big_jump_fuel_amount):
-#					cache_spaceship_velocity = spaceship.velocity
-#					drag_start_position = get_global_mouse_position()
-#					spaceship.velocity = Vector2.ZERO
-#					input_state = InputState.GetBigJump
 			if Input.is_action_pressed("thruster_forward") && fuel_meter > 0:
 				spaceship.add_thruster()
 				fuel_meter -= fuel_decrease_amount

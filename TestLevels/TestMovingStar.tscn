@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://3bgs8g0uswpd"]
+
+[ext_resource type="PackedScene" uid="uid://w6gs4ljwad72" path="res://TestLevels/LevelBase.tscn" id="1_ap55l"]
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_jkvvc"]
+[ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/Stars/StarFailedwannabe.svg" id="3_uhsan"]
+[ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="4_8oivm"]
+[ext_resource type="Script" path="res://GravityObjects/MovingStars.gd" id="4_qy5tn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
+
+[node name="LevelBase" instance=ExtResource("1_ap55l")]
+
+[node name="Spaceship" parent="." index="0"]
+position = Vector2(-158, -7)
+forward_speed = 1.0
+starting_big_jump_fuel = 0
+starting_velocity = 633.335
+
+[node name="Stars" parent="." index="1"]
+material = SubResource("ShaderMaterial_2lpja")
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("2_jkvvc")]
+texture = ExtResource("3_uhsan")
+effect_radius = 1e+06
+
+[node name="Sprite2D" parent="Stars/Star" index="1"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_uhsan")
+
+[node name="Star2" parent="Stars" index="1" node_paths=PackedStringArray("rotation_center") instance=ExtResource("2_jkvvc")]
+position = Vector2(-190.121, -287.994)
+script = ExtResource("4_qy5tn")
+rotation_center = NodePath("../Star")
+angular_vel = 0.1
+texture = null
+effect_radius = 10000.0
+
+[node name="Sprite2D" parent="Stars/Star2" index="1"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_uhsan")
+
+[node name="EnergyCrystal2" parent="Crystals" index="0" instance=ExtResource("4_8oivm")]
+position = Vector2(204, -156)
+
+[node name="EnergyCrystal3" parent="Crystals" index="1" instance=ExtResource("4_8oivm")]
+position = Vector2(-220, -155)
+
+[node name="EnergyCrystal4" parent="Crystals" index="2" instance=ExtResource("4_8oivm")]
+position = Vector2(3.99997, 244)
+
+[node name="CollisionShape2D" parent="DeathArea" index="0"]
+position = Vector2(-3, 680)
+
+[node name="CollisionShape2D2" parent="DeathArea" index="1"]
+position = Vector2(-578, -6)
+
+[node name="CollisionShape2D3" parent="DeathArea" index="2"]
+position = Vector2(561, -21)
+
+[node name="CollisionShape2D4" parent="DeathArea" index="3"]
+position = Vector2(-2, -732)
+
+[editable path="Stars/Star"]
+[editable path="Stars/Star2"]
