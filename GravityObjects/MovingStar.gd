@@ -1,5 +1,6 @@
 @tool
 extends GravityObject
+class_name MovingStar
 
 @export var rotation_center: Node2D
 @export var angular_vel: float

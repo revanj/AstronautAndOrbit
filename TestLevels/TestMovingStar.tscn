@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="2_jkvvc"]
 [ext_resource type="Texture2D" uid="uid://cya38ef4wtcxt" path="res://Art/Stars/StarFailedwannabe.svg" id="3_uhsan"]
 [ext_resource type="PackedScene" uid="uid://co8brsgf1hgks" path="res://Prefabs/EnergyStar.tscn" id="4_8oivm"]
-[ext_resource type="Script" path="res://GravityObjects/MovingStars.gd" id="4_qy5tn"]
+[ext_resource type="Script" path="res://GravityObjects/MovingStar.gd" id="4_qy5tn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lpja"]
 

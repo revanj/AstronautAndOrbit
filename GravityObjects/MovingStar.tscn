@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djjaavbnajsvn"]
+
+[ext_resource type="PackedScene" uid="uid://b160ih64nd20k" path="res://GravityObjects/Star.tscn" id="1_5v21e"]
+[ext_resource type="Script" path="res://GravityObjects/MovingStar.gd" id="2_qgjau"]
+
+[node name="Star" instance=ExtResource("1_5v21e")]
+script = ExtResource("2_qgjau")
+angular_vel = 0.0
+texture = null
+
+[node name="Sprite2D" parent="." index="1"]
+texture = null
+
+[node name="PathDisplay" type="Node2D" parent="." index="2"]
