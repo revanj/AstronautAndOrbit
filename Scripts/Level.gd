@@ -13,8 +13,6 @@ class_name Level
 var paused = false
 
 func _ready():
-	# GameManager.find_current_level()
-	
 	spaceship.fuel_changed.connect(ui._on_spaceship_fuel_changed)
 	spaceship.emit_signal("fuel_changed", spaceship.fuel_meter)
 	
@@ -34,9 +32,6 @@ func _ready():
 	for b in death_beams:
 		b.player_dead_by_star.connect(ui._on_player_dead_by_star)
 		b.player_dead_by_star.connect(self._on_player_death)
-
-
-			
 
 
 func _on_ui_pause_game(visibility: bool):

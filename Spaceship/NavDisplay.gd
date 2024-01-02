@@ -7,15 +7,12 @@ class_name NavDisplay
 # or at least update everytime something moves
 
 var stars
-
-var spaceship
-@export var arrow_texture: Texture
-
-var trajectory_data
+var spaceship: Spaceship
+@export var arrow_texture: Texture2D
 
 
-var previous_pos = Vector2.ZERO
-var previous_speed = 0
+var previous_pos: Vector2 = Vector2.ZERO
+var previous_speed: int   = 0
 
 var half_texture_width: float
 
@@ -23,6 +20,8 @@ class TrajectoryData:
 	var points_arc
 	var arrow_pos
 	var arrow_dir
+
+var trajectory_data: TrajectoryData
 
 func _ready():
 	set_as_top_level(true)
@@ -32,59 +31,53 @@ func _ready():
 	stars = get_tree().get_nodes_in_group("gravity_objects")
 	half_texture_width = arrow_texture.get_width()/2.0
 	
-func get_field_at(pos):
-	var result = Vector2.ZERO
+func get_field_at(pos: Vector2) -> Vector2:
+	var result: Vector2 = Vector2.ZERO
 	for star in stars:
 		result += star.get_gravity_vector(pos)
 	return result
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !Engine.is_editor_hint():
 		spaceship.field_dir = get_field_at(spaceship.global_position)
-	else:
-		var spaceship = get_parent()
-		if spaceship.global_position != previous_pos:
+	else: # this runs in editor
+		var spaceship_editor: Spaceship = get_parent() as Spaceship
+		var pos_changed: bool = spaceship_editor.global_position != previous_pos
+		var vel_changed: bool = spaceship_editor.starting_velocity != previous_speed
+		if pos_changed || vel_changed:
 			queue_redraw()
-		previous_pos = spaceship.global_position
-		
-		if spaceship.starting_velocity != previous_speed:
-			queue_redraw()
-		previous_speed = spaceship.starting_velocity
+		previous_pos = spaceship_editor.global_position
+		previous_speed = spaceship_editor.starting_velocity
 		
 		
 func get_trajectory(start_pos, start_vel, nb_points, dt, ds):
-	var points_arc = PackedVector2Array()
-	var arrow_pos = PackedVector2Array()
-	var arrow_directions = PackedVector2Array()
+	var points_arc: PackedVector2Array       = PackedVector2Array()
+	var arrow_pos: PackedVector2Array        = PackedVector2Array()
+	var arrow_directions: PackedVector2Array = PackedVector2Array()
 	
 	points_arc.push_back(start_pos)
-	var current_point = start_pos
-	var current_vel = start_vel
-	var s_accumulate = 0
+	var current_point 	  = start_pos
+	var current_vel       = start_vel
+	# var s_accumulate: int = 0
 	for i in range(nb_points + 1):
 		var s = current_vel * dt
 		current_point = current_point + s
 		current_vel = current_vel + get_field_at(current_point) * dt
-		s_accumulate += 1
-		if s_accumulate >= ds:
+		points_arc.push_back(current_point)
+		if (i + 1) % ds == 0:
 			arrow_pos.push_back(current_point)
 			arrow_directions.push_back(current_vel)
-			s_accumulate = 0
-		points_arc.push_back(current_point)
+
 	var ret = TrajectoryData.new()
 	ret.points_arc = points_arc
 	ret.arrow_pos = arrow_pos
 	ret.arrow_dir = arrow_directions
 	return ret
-	
-func _process(delta):
-	if !Engine.is_editor_hint():
-		# queue_redraw()
-		pass
 
-func _draw():
-	var color = Color(1, 1, 1)
-	var nb_points = 200
+
+func _draw() -> void:
+	var color: Color   = Color(1, 1, 1)
+	var nb_points: int = 200
 	
 	if Engine.is_editor_hint():
 		stars = get_tree().get_nodes_in_group("gravity_objects")
@@ -93,19 +86,23 @@ func _draw():
 		trajectory_data = get_trajectory(
 			spaceship.global_position, 
 			calculating_velocity, 200, 1.0/30.0, 20)
-			
-			
+
 	if trajectory_data == null:
 		return
-		
-		
+
 	var points_arc = trajectory_data.points_arc
 	var arrow_pos = trajectory_data.arrow_pos
 	var arrow_dir = trajectory_data.arrow_dir
 	
 	draw_set_transform(Vector2.ZERO, 0)
 	for index_point in range(nb_points - 1):
-		draw_line(points_arc[index_point], points_arc[index_point + 1], color * float(nb_points - index_point)/nb_points + Color(0,0,0,0) * float(index_point)/nb_points, 1, true)
+		draw_line(
+			points_arc[index_point],
+			points_arc[index_point + 1],
+			lerp(color, Color(0, 0, 0, 0) ,float(index_point)/nb_points),
+			1,
+			true
+		)
 	
 	for index_point in range(len(arrow_pos)):
 		draw_set_transform(
@@ -113,5 +110,9 @@ func _draw():
 			Vector2.DOWN.angle_to(arrow_dir[index_point]) + PI,
 			Vector2(0.08, 0.08)
 		)
-		var arrow_len = len(arrow_pos)
-		draw_texture(arrow_texture, Vector2(-half_texture_width, 0), color * float(arrow_len - index_point)/arrow_len + Color(0,0,0,0) * float(index_point)/arrow_len)
+		var arrow_len: int = len(arrow_pos)
+		draw_texture(
+			arrow_texture,
+			Vector2(-half_texture_width, 0),
+			lerp(color, Color(0, 0, 0, 0), float(index_point)/arrow_len)
+		)
